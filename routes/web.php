@@ -12,6 +12,8 @@
 */
 // Frontend
 Route::get('/', 'Frontend\IndexController@GetIndex');
+Route::post('', 'Frontend\LoginController@PostLogin');
+
 Route::get('contact', 'Frontend\IndexController@GetContact');
 Route::get('404', 'Frontend\IndexController@Get404');
 
@@ -27,7 +29,7 @@ Route::group(['prefix'=>'cart'],function(){
 Route::group(['prefix'=>'user'],function(){
     Route::get('account', 'Frontend\UserController@GetAccount');
 });
-
+  
 
 // Backend
 Route::get('admin/login', 'Admin\AuthController@getLoginAdmin');
