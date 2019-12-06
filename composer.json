@@ -37,9 +37,6 @@
         "classmap": [
             "database/seeds",
             "database/factories"
-        ],
-        "files": [
-            "app/Helper/function.php"
         ]
     },
     "autoload-dev": {

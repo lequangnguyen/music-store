@@ -65,6 +65,10 @@
                       </tr>
                       <tr>
                         <td colspan="6" class="aa-cart-view-bottom">
+                          <div class="aa-cart-coupon">
+                            <input class="aa-coupon-code" type="text" placeholder="Coupon">
+                            <input class="aa-cart-view-btn" type="submit" value="Apply Coupon">
+                          </div>
                           <input class="aa-cart-view-btn" type="submit" value="Update Cart">
                         </td>
                       </tr>

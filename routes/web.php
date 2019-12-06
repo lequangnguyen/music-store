@@ -12,8 +12,11 @@
 */
 // Frontend
 Route::get('/', 'Frontend\IndexController@GetIndex');
+<<<<<<< HEAD
 Route::post('', 'Frontend\IndexController@PostLogin');
 
+=======
+>>>>>>> parent of 0123c6e... Merge branch 'development' into Thang
 Route::get('contact', 'Frontend\IndexController@GetContact');
 Route::get('404', 'Frontend\IndexController@Get404');
 
