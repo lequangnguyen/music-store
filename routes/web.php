@@ -12,7 +12,6 @@
 */
 // Frontend
 Route::get('/', 'Frontend\IndexController@GetIndex');
-Route::get('logout', 'Frontend\LoginController@Logout');
 Route::post('', 'Frontend\LoginController@PostLogin');
 
 Route::get('contact', 'Frontend\IndexController@GetContact');
