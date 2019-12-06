@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 /*
 |--------------------------------------------------------------------------
@@ -10,11 +10,28 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Frontend
+Route::get('/', 'Frontend\IndexController@GetIndex');
+Route::post('', 'Frontend\IndexController@PostLogin');
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('contact', 'Frontend\IndexController@GetContact');
+Route::get('404', 'Frontend\IndexController@Get404');
+
+Route::group(['prefix'=>'product'],function(){
+    Route::get('/', 'Frontend\ProductController@GetProduct');
+    Route::get('detail', 'Frontend\ProductController@GetProductDetail');
+});
+Route::group(['prefix'=>'cart'],function(){
+    Route::get('', 'Frontend\CheckoutController@GetCart');
+    Route::get('checkout', 'Frontend\CheckoutController@GetCheckout');
+    Route::get('wishlist', 'Frontend\CheckoutController@GetWishlist');
+});
+Route::group(['prefix'=>'user'],function(){
+    Route::get('account', 'Frontend\UserController@GetAccount');
 });
 
+
+// Backend
 Route::get('admin/login', 'Admin\AuthController@getLoginAdmin');
 Route::get('admin/logout', 'Admin\AuthController@getLogoutAdmin')->name('logout');
 Route::post('admin/login', 'Admin\AuthController@postLoginAdmin');
