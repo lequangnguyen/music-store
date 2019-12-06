@@ -18,4 +18,8 @@ class LoginController extends Controller
     		return redirect()->back();
     	}
     }
+     function Logout{
+     	Auth::logout();
+     	return redirect()->back();
+    }
 }
