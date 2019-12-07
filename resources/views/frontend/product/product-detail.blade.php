@@ -31,7 +31,7 @@
                   <div class="aa-product-view-slider">                                
                     <div id="demo-1" class="simpleLens-gallery-container">
                       <div class="simpleLens-container">
-                        <div class="simpleLens-big-image-container"><a data-lens-image="img/view-slider/large/polo-shirt-1.png" class="simpleLens-lens-image"><img src="img/view-slider/medium/polo-shirt-1.png" class="simpleLens-big-image"></a></div>
+                        <div class="simpleLens-big-image-container"><a data-lens-image="{{$product->image}}" class="simpleLens-lens-image"><img src="{{$product->image}}" class="simpleLens-big-image"></a></div>
                       </div>
                       
                     </div>
@@ -40,7 +40,7 @@
                 <!-- Modal view content -->
                 <div class="col-md-7 col-sm-7 col-xs-12">
                   <div class="aa-product-view-content">
-                    <h3>T-Shirt</h3>
+                    <h3>{{$product->name}}</h3>
                     <div class="aa-price-block">
                       <span class="aa-product-view-price">$34.99</span>
                       <p class="aa-product-avilability">Avilability: <span>In stock</span></p>
