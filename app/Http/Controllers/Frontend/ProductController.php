@@ -22,7 +22,7 @@ class ProductController extends Controller
     	return view('frontend.product.product');
     }
     function GetProductDetail($id){
-    	return view('frontend.product.product-detail', ['product' => $this->productRepository->getProduct($id),'category'=>$this->categoryRepository->getEditCategory($id),'rale_product'=>$this->productRepository->getRelateProduct($id,4)]);
+    	return view('frontend.product.product-detail', ['product' => $this->productRepository->getProduct($id),'category'=>$this->productRepository->getCateById($id),'rale_product'=>$this->productRepository->getRelateProduct($id,4)]);
     }
 
 }

@@ -105,4 +105,9 @@ class ProductRepository implements ProductRepositoryInterface
         ])->limit($limit)->get();
         return $rela_products;
     }
-}
+    public function getCateById($id){
+         $product = Products::find($id);
+         $category= DB::table('categories')->where('id','=',$product->category_id)->get();
+         return $category;
+    }
+} 
