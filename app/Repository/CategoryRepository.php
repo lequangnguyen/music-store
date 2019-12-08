@@ -72,7 +72,6 @@ class CategoryRepository implements CategoryRepositoryInterface
         $categories = DB::table('categories')->paginate(10);
         return $categories;
     }
-
     public function getEditCategory($id)
     {
         // TODO: Implement getEditCategory() method.

@@ -41,25 +41,11 @@
                 <div class="col-md-7 col-sm-7 col-xs-12">
                   <div class="aa-product-view-content">
                     <h3>{{$product->name}}</h3>
-                    <div class="aa-price-block">
-                      <span class="aa-product-view-price">$34.99</span>
+                     <div class="aa-info-block">
+                      <span class="aa-product-view-price">${{$product->price}}</span>
                       <p class="aa-product-avilability">Avilability: <span>In stock</span></p>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis animi, veritatis quae repudiandae quod nulla porro quidem, itaque quis quaerat!</p>
-                    <h4>Size</h4>
-                    <div class="aa-prod-view-size">
-                      <a href="#">S</a>
-                      <a href="#">M</a>
-                      <a href="#">L</a>
-                      <a href="#">XL</a>
-                    </div>
-                    <h4>Color</h4>
-                    <div class="aa-color-tag">
-                      <a href="#" class="aa-color-green"></a>
-                      <a href="#" class="aa-color-yellow"></a>
-                      <a href="#" class="aa-color-pink"></a>                      
-                      <a href="#" class="aa-color-black"></a>
-                      <a href="#" class="aa-color-white"></a>                      
+                      <p class="aa-product-author">Author: <span>In stock</span></p>
+                      <p class="aa-product-company">Company: <span>In stock</span></p>
                     </div>
                     <div class="aa-prod-quantity">
                       <form action="">
@@ -73,7 +59,7 @@
                         </select>
                       </form>
                       <p class="aa-prod-category">
-                        Category: <a href="#">Polo T-Shirt</a>
+                        Category: <a href="#">{{$category->name}}</a>
                       </p>
                     </div>
                     <div class="aa-prod-view-bottom">
@@ -91,16 +77,7 @@
               <!-- Tab panes -->
               <div class="tab-content">
                 <div class="tab-pane fade in active" id="description">
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                  <ul>
-                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, culpa!</li>
-                    <li>Lorem ipsum dolor sit amet.</li>
-                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
-                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor qui eius esse!</li>
-                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, modi!</li>
-                  </ul>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, iusto earum voluptates autem esse molestiae ipsam, atque quam amet similique ducimus aliquid voluptate perferendis, distinctio!</p>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis ea, voluptas! Aliquam facere quas cumque rerum dolore impedit, dicta ducimus repellat dignissimos, fugiat, minima quaerat necessitatibus? Optio adipisci ab, obcaecati, porro unde accusantium facilis repudiandae.</p>
+                  <p>{{$product->description}}</p>
                 </div>
                 <div class="tab-pane fade " id="review">
                  <div class="aa-product-review-area">
@@ -180,6 +157,9 @@
             <!-- Related product -->
             <div class="aa-product-related-item">
               <h3>Related Products</h3>
+              @php
+                var_dump($rale_product);
+              @endphp
               <ul class="aa-product-catg aa-related-item-slider">
                 <!-- start single product item -->
                 <li>
