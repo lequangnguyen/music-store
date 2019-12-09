@@ -23,9 +23,9 @@ Route::group(['prefix'=>'product'],function(){
     Route::get('/', 'Frontend\ProductController@GetProduct');
     Route::get('detail/{id}', 'Frontend\ProductController@GetProductDetail');
 
-// Route::group(['prefix'=>'category'],function(){
-//     Route::get('/', 'Frontend\CategoryController@getProducts')
-// });
+Route::group(['prefix'=>'category'],function(){
+    Route::get('/', 'Frontend\CategoryController@getProducts');
+});
 Route::group(['prefix'=>'cart'],function(){
     Route::get('', 'Frontend\CheckoutController@GetCart');
     Route::get('checkout', 'Frontend\CheckoutController@GetCheckout');
@@ -74,3 +74,4 @@ Route::group(['namespace' => 'Admin',
         Route::post('edit/{id}', ['as'=>'update','uses'=>'ProductController@update']);
     });
 });
+    
