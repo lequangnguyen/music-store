@@ -62,7 +62,14 @@
                   <li class="hidden-xs"><a href="wishlist.html">Wishlist</a></li>
                   <li class="hidden-xs"><a href="cart.html">My Cart</a></li>
                   <li class="hidden-xs"><a href="checkout.html">Checkout</a></li>
-                  <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>
+                  @if (Auth::check())
+                    <li class=""><a href="">Welcome {{Auth::user()->name}}</a>
+                      <ul><li><a href="/logout">Logout</a></li></ul>
+                    </li>
+                  @else
+                    <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>
+                  @endif
+                  
                 </ul>
               </div>
             </div>
@@ -81,9 +88,8 @@
               <!-- logo  -->
               <div class="aa-logo">
                 <!-- Text based logo -->
-                <a href="index.html">
-                  <span class="fa fa-shopping-cart"></span>
-                  <p>daily<strong>Shop</strong> <span>Your Shopping Partner</span></p>
+                <a href="/">
+                  <img src="/img/logo.png">
                 </a>
                 <!-- img based logo -->
                 <!-- <a href="index.html"><img src="img/logo.jpg" alt="logo img"></a> -->

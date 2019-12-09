@@ -12,11 +12,20 @@
 */
 // Frontend
 Route::get('/', 'Frontend\IndexController@GetIndex');
+Route::post('/login', 'Frontend\LoginController@PostLogin');
+Route::get('/logout', 'Frontend\LoginController@Logout');
+
 Route::get('contact', 'Frontend\IndexController@GetContact');
 Route::get('404', 'Frontend\IndexController@Get404');
 
+Route::group(['prefix'=>'product'],function(){
+    Route::get('/', 'Frontend\ProductController@GetProduct');
+    Route::get('detail/{id}', 'Frontend\ProductController@GetProductDetail');
+
+});
 Route::group(['prefix'=>'category'],function(){
     Route::get('/', 'Frontend\CategoryController@getProducts');
+
 });
 Route::group(['prefix'=>'cart'],function(){
     Route::get('', 'Frontend\CheckoutController@GetCart');
@@ -26,7 +35,7 @@ Route::group(['prefix'=>'cart'],function(){
 Route::group(['prefix'=>'user'],function(){
     Route::get('account', 'Frontend\UserController@GetAccount');
 });
-
+  
 
 // Backend
 Route::get('admin/login', 'Admin\AuthController@getLoginAdmin');
@@ -66,3 +75,4 @@ Route::group(['namespace' => 'Admin',
         Route::post('edit/{id}', ['as'=>'update','uses'=>'ProductController@update']);
     });
 });
+    

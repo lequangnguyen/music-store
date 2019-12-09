@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Products extends Model
 {
     //
-    use SoftDeletes;
     protected $fillable = [
         'product_name',
         'description',
@@ -20,6 +19,7 @@ class Products extends Model
         'sub_picture3',
     ];
     public $timestamps = false;
+
     public function category()
     {
         $this->belongTo(Categories::class);
