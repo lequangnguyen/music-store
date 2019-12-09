@@ -381,6 +381,9 @@ img {
   font-family: "Raleway", sans-serif;
   font-size: 28px;
 }
+#aa-header .aa-header-bottom .aa-header-bottom-area .aa-logo a img{
+  width: 120%;
+}
 #aa-header .aa-header-bottom .aa-header-bottom-area .aa-logo a:hover {  
   color: #333;
 }
