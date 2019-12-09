@@ -22,7 +22,7 @@ Route::get('404', 'Frontend\IndexController@Get404');
 Route::group(['prefix'=>'product'],function(){
     Route::get('/', 'Frontend\ProductController@GetProduct');
     Route::get('detail/{id}', 'Frontend\ProductController@GetProductDetail');
-
+});
 Route::group(['prefix'=>'category'],function(){
     Route::get('/', 'Frontend\CategoryController@getProducts');
 });
