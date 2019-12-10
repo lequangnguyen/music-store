@@ -8,8 +8,9 @@ use Cart;
 class CheckoutController extends Controller
 {
     function GetCart(){
-    	$data['cart']=Cart::content();
-       	return view('frontend.cart.cart');
+    	  $data['cart']=Cart::content();
+        $data['total']=Cart::total(0,"",".");
+       	return view('frontend.cart.cart',$data);
     }
 
     function AddToCart(request $r){
@@ -20,7 +21,7 @@ class CheckoutController extends Controller
       	'qty'=>	$r->quantity,
       	'price'=>$product->price,
       	'weight'=>0,
-      	'options'=>['image'=>'$product->image'],
+      	'options'=>['image'=>$product->image],
       ]);
      return redirect('cart');
     }
