@@ -39,6 +39,7 @@
                 </div>
                 <!-- Modal view content -->
                 <div class="col-md-7 col-sm-7 col-xs-12">
+                  <form action="/cart/addtocart" method="GET">
                   <div class="aa-product-view-content">
                     <h3>{{$product->name}}</h3>
                      <div class="aa-info-block">
@@ -47,17 +48,15 @@
                       <p class="aa-product-author">Author: <span>In stock</span></p>
                       <p class="aa-product-company">Company: <span>In stock</span></p>
                     </div>
-                    <div class="aa-prod-quantity">
-                      <form action="">
-                        <select id="" name="">
-                          <option selected="1" value="0">1</option>
-                          <option value="1">2</option>
-                          <option value="2">3</option>
-                          <option value="3">4</option>
-                          <option value="4">5</option>
-                          <option value="5">6</option> 
+                    <div class="aa-prod-quantity">              
+                        <select id="" name="quantity">
+                          <option selected="1" value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option> 
                         </select>
-                      </form>
                       <p class="aa-prod-category">
                         Category: 
                           @foreach ($category as $object)
@@ -67,9 +66,11 @@
                       </p>
                     </div>
                     <div class="aa-prod-view-bottom">
-                      <a class="aa-add-to-cart-btn" href="#">Add To Cart</a>
+                      <input type="hidden" name="id_product" value="{{$product->id}}">
+                      <button class="aa-add-to-cart-btn" href="#" type="submit" >Add To Cart</button  >
                     </div>
                   </div>
+                  </form>
                 </div>
               </div>
             </div>

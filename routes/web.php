@@ -19,15 +19,16 @@ Route::get('contact', 'Frontend\IndexController@GetContact');
 Route::get('404', 'Frontend\IndexController@Get404');
 
 Route::group(['prefix'=>'product'],function(){
-    Route::get('/', 'Frontend\ProductController@GetProduct');
-    Route::get('detail/{id}', 'Frontend\ProductController@GetProductDetail');
+    Route::get('{id}', 'Frontend\ProductController@GetProductDetail');
 
 });
 Route::group(['prefix'=>'category'],function(){
-    Route::get('/', 'Frontend\CategoryController@getProducts');
+    Route::get('/', 'Frontend\CategoryController@getP   ');
+
 });
 Route::group(['prefix'=>'cart'],function(){
     Route::get('', 'Frontend\CheckoutController@GetCart');
+    Route::get('addtocart', 'Frontend\CheckoutController@AddToCart');
     Route::get('checkout', 'Frontend\CheckoutController@GetCheckout');
     Route::get('wishlist', 'Frontend\CheckoutController@GetWishlist');
 });

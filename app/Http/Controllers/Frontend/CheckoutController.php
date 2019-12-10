@@ -1,19 +1,27 @@
 <?php
 
 namespace App\Http\Controllers\Frontend;
-
+use App\Models\Products;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Cart;
 class CheckoutController extends Controller
 {
     function GetCart(){
-    	return view('frontend.cart.cart');
+    	$data['cart']=Cart::content();
+       	return view('frontend.cart.cart');
     }
-    function GetCheckout(){
-    	return view('frontend.cart.checkout');
-    }
-    function GetWishlist(){
-    	return view('frontend.cart.wishlist');
+
+    function AddToCart(request $r){
+	 $product=Products::find($r->id_product);
+      Cart::add([
+      	'id'=>$product->id,
+      	'name'=>$product->name,
+      	'qty'=>	$r->quantity,
+      	'price'=>$product->price,
+      	'weight'=>0,
+      	'options'=>['image'=>'$product->image'],
+      ]);
+     return redirect('cart');
     }
 }
