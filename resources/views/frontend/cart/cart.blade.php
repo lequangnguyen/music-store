@@ -39,51 +39,29 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td><a class="remove" href="#"><fa class="fa fa-close"></fa></a></td>
-                        <td><a href="#"><img src="img/man/polo-shirt-1.png" alt="img"></a></td>
-                        <td><a class="aa-cart-title" href="#">Polo T-Shirt</a></td>
-                        <td>$250</td>
-                        <td><input class="aa-cart-quantity" type="number" value="1"></td>
-                        <td>$250</td>
+                     
+                      @foreach ($cart as $row)
+                        <tr>
+                          <td><a class="remove" onclick="return delete_cart('{{$row->name}}')" href="/cart/del/{{$row->rowId}}"><fa class="fa fa-close"></fa></a></td>
+                          <td><a href="#"><img src="{{$row->options->image}}" alt="img"></a></td>
+                          <td><a class="aa-cart-title" href="#">{{$row->name}}</a></td>
+                          <td>${{number_format($row->price,0,"",".")}}</td>
+                          <td><input onchange=" update_cart('{{$row->rowId}}',this.value) " class="aa-cart-quantity" type="number" value="{{$row->qty}}"></td>
+                        <td>${{number_format($row->price*$row->qty,0,"",".")}}</td>
                       </tr>
-                      <tr>
-                        <td><a class="remove" href="#"><fa class="fa fa-close"></fa></a></td>
-                        <td><a href="#"><img src="img/man/polo-shirt-2.png" alt="img"></a></td>
-                        <td><a class="aa-cart-title" href="#">Polo T-Shirt</a></td>
-                        <td>$150</td>
-                        <td><input class="aa-cart-quantity" type="number" value="1"></td>
-                        <td>$150</td>
-                      </tr>
-                      <tr>
-                        <td><a class="remove" href="#"><fa class="fa fa-close"></fa></a></td>
-                        <td><a href="#"><img src="img/man/polo-shirt-3.png" alt="img"></a></td>
-                        <td><a class="aa-cart-title" href="#">Polo T-Shirt</a></td>
-                        <td>$50</td>
-                        <td><input class="aa-cart-quantity" type="number" value="1"></td>
-                        <td>$50</td>
-                      </tr>
-                      <tr>
-                        <td colspan="6" class="aa-cart-view-bottom">
-                          <input class="aa-cart-view-btn" type="submit" value="Update Cart">
-                        </td>
-                      </tr>
+                      @endforeach                 
                       </tbody>
                   </table>
                 </div>
-             </form>
+             </form>  
              <!-- Cart Total view -->
              <div class="cart-view-total">
                <h4>Cart Totals</h4>
                <table class="aa-totals-table">
                  <tbody>
                    <tr>
-                     <th>Subtotal</th>
-                     <td>$450</td>
-                   </tr>
-                   <tr>
                      <th>Total</th>
-                     <td>$450</td>
+                     <td>${{$total}}</td>
                    </tr>
                  </tbody>
                </table>
