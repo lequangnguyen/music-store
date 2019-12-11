@@ -42,18 +42,18 @@
                      
                       @foreach ($cart as $row)
                         <tr>
-                          <td><a class="remove" href="#"><fa class="fa fa-close"></fa></a></td>
+                          <td><a class="remove" onclick="return delete_cart('{{$row->name}}')" href="/cart/del/{{$row->rowId}}"><fa class="fa fa-close"></fa></a></td>
                           <td><a href="#"><img src="{{$row->options->image}}" alt="img"></a></td>
                           <td><a class="aa-cart-title" href="#">{{$row->name}}</a></td>
                           <td>${{number_format($row->price,0,"",".")}}</td>
-                          <td><input class="aa-cart-quantity" type="number" value="{{$row->qty}}"></td>
+                          <td><input onchange=" update_cart('{{$row->rowId}}',this.value) " class="aa-cart-quantity" type="number" value="{{$row->qty}}"></td>
                         <td>${{number_format($row->price*$row->qty,0,"",".")}}</td>
                       </tr>
                       @endforeach                 
                       </tbody>
                   </table>
                 </div>
-             </form>
+             </form>  
              <!-- Cart Total view -->
              <div class="cart-view-total">
                <h4>Cart Totals</h4>

@@ -27,8 +27,11 @@ Route::group(['prefix'=>'category'],function(){
 
 });
 Route::group(['prefix'=>'cart'],function(){
-    Route::get('', 'Frontend\CheckoutController@GetCart');
-    Route::get('addtocart', 'Frontend\CheckoutController@AddToCart');
+    Route::get('', 'Frontend\CartController@GetCart');
+    Route::get('addtocart', 'Frontend\CartController@AddToCart');
+    Route::get('update/{rowId}/{qty}', 'Frontend\CartController@UpdateCart');
+    Route::get('del/{rowId}', 'Frontend\CartController@DeleteCart');
+    
     Route::get('checkout', 'Frontend\CheckoutController@GetCheckout');
     Route::get('wishlist', 'Frontend\CheckoutController@GetWishlist');
 });
@@ -75,4 +78,4 @@ Route::group(['namespace' => 'Admin',
         Route::post('edit/{id}', ['as'=>'update','uses'=>'ProductController@update']);
     });
 });
-    
+     

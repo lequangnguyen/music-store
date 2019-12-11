@@ -5,7 +5,7 @@ use App\Models\Products;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Cart;
-class CheckoutController extends Controller
+class CartController extends Controller
 {
     function GetCart(){
     	  $data['cart']=Cart::content();
@@ -25,4 +25,13 @@ class CheckoutController extends Controller
       ]);
      return redirect('cart');
     }
+    function UpdateCart($rowId,$qty){
+      Cart::update($rowId,$qty);
+      return 1;
+    }
+    function DeleteCart($rowId){
+      Cart::remove($rowId);
+      return redirect()->back();
+    }
 }
+ 
