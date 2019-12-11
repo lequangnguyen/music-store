@@ -23,7 +23,7 @@ Route::group(['prefix'=>'product'],function(){
 
 });
 Route::group(['prefix'=>'category'],function(){
-    Route::get('/', 'Frontend\CategoryController@getP   ');
+    Route::get('/', 'Frontend\CategoryController@getProducts');
 
 });
 Route::group(['prefix'=>'cart'],function(){
@@ -31,7 +31,7 @@ Route::group(['prefix'=>'cart'],function(){
     Route::get('addtocart', 'Frontend\CartController@AddToCart');
     Route::get('update/{rowId}/{qty}', 'Frontend\CartController@UpdateCart');
     Route::get('del/{rowId}', 'Frontend\CartController@DeleteCart');
-    
+
     Route::get('checkout', 'Frontend\CheckoutController@GetCheckout');
     Route::get('wishlist', 'Frontend\CheckoutController@GetWishlist');
 });
