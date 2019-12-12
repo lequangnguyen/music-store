@@ -27,6 +27,7 @@
 
     <!-- Main style sheet -->
     <link href="css/style.css" rel="stylesheet">    
+    <link href="css/custom.css" rel="stylesheet">
 
     <!-- Google Font -->
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>

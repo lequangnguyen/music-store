@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
 class IndexController extends Controller
 {
-    function GetIndex(){
+    function index(){
     	return view('frontend.index');
     }
    
