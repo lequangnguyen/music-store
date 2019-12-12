@@ -65,7 +65,7 @@
                    </tr>
                  </tbody>
                </table>
-               <a href="#" class="aa-cart-view-btn">Proced to Checkout</a>
+               <button type="submit" onclick="check_out()" class="aa-cart-view-btn">Proced to Checkout</button>
              </div>
            </div>
          </div>

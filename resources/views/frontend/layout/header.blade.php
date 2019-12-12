@@ -100,7 +100,7 @@
                 <a class="aa-cart-link" href="/cart">
                   <span class="fa fa-shopping-basket"></span>
                   <span class="aa-cart-title">SHOPPING CART</span>
-                  <span class="aa-cart-notify">2</span>
+                  <span class="aa-cart-notify">{{Cart::count()}}</span>
                 </a>
                 <div class="aa-cartbox-summary">
                   <ul>
