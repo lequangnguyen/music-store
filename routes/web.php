@@ -31,7 +31,7 @@ Route::group(['prefix'=>'cart'],function(){
     Route::get('addtocart', 'Frontend\CartController@AddToCart');
     Route::get('update/{rowId}/{qty}', 'Frontend\CartController@UpdateCart');
     Route::get('del/{rowId}', 'Frontend\CartController@DeleteCart'); 
-});
+}); 
 Route::get('checklogin', 'Frontend\CheckoutController@CheckLogin');
 Route::get('checkout', 'Frontend\CheckoutController@GetCheckout')->middleware('CheckOut');
 Route::group(['prefix'=>'user'],function(){

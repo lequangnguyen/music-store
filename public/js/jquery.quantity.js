@@ -22,7 +22,10 @@ function check_out(){
          $('#login-modal').modal('show');
        }
        else{
-         window.location.href="checkout";
+         var r=confirm("Are you sure to want to pay ?");
+         if (r==true) {
+           window.location.href="/checkout";
+         }        
        }
    }
    );
