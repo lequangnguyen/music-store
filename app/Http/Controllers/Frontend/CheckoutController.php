@@ -19,4 +19,7 @@ class CheckoutController extends Controller
     		return 1;
     	}
     }
+    function PostCheckout(Request $r){
+        dd($r->all());
+    }
 }

@@ -21,11 +21,13 @@
  <!-- Cart view section -->
  <section id="cart-view">
    <div class="container">
+       
      <div class="row">
        <div class="col-md-12">
          <div class="cart-view-area">
            <div class="cart-view-table">
-             <form action="">
+             <form id="form-cart">
+                @csrf
                <div class="table-responsive">
                   <table class="table">
                     <thead>
@@ -53,7 +55,7 @@
                       </tbody>
                   </table>
                 </div>
-             </form>  
+            
              <!-- Cart Total view -->
              <div class="cart-view-total">
                <h4>Cart Totals</h4>
@@ -65,8 +67,9 @@
                    </tr>
                  </tbody>
                </table>
-               <button type="submit" onclick="check_out()" class="aa-cart-view-btn">Proced to Checkout</button>
+               <button type="submit" class="aa-cart-view-btn">Proced to Checkout</button>
              </div>
+              </form>  
            </div>
          </div>
        </div>

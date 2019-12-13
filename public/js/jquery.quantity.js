@@ -15,8 +15,9 @@ function update_cart(rowId,qty){
 function delete_cart(name){
    return confirm("Bạn có muốn xóa sản phẩm "+name+" trong giỏ hàng");
 }
-function check_out(){
-   $.get('/checklogin',
+$(document).ready(function(){ 
+  $("#form-cart").submit(function(){
+    $.get('/checklogin',
       function(data)
    {   if (data==1) {
          $('#login-modal').modal('show');
@@ -29,4 +30,39 @@ function check_out(){
        }
    }
    );
-}
+  });
+});
+// $( document ).ready(function() {
+//   //  $.('#form-cart').submit(function(){
+//   //     alert('adsad');
+//   //  $.get('/checklogin',
+//   //     function(data)
+//   //  {   if (data==1) {
+//   //        $('#login-modal').modal('show');
+//   //      }
+//   //      else{
+//   //        var r=confirm("Are you sure to want to pay ?");
+//   //        if (r==true) {
+//   //          window.location.href="/checkout";
+//   //        }        
+//   //      }
+//   //  }
+//   //  );
+//   // });
+// });
+
+// function check_out(){
+//    $.get('/checklogin',
+//       function(data)
+//    {   if (data==1) {
+//          $('#login-modal').modal('show');
+//        }
+//        else{
+//          var r=confirm("Are you sure to want to pay ?");
+//          if (r==true) {
+//            window.location.href="/checkout";
+//          }        
+//        }
+//    }
+//    );
+// }
