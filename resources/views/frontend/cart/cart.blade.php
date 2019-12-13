@@ -26,7 +26,7 @@
        <div class="col-md-12">
          <div class="cart-view-area">
            <div class="cart-view-table">
-             <form id="form-cart" method="post">
+             <form id="form-cart" method="POST" action="checkout" >
                 @csrf
                <div class="table-responsive">
                   <table class="table">

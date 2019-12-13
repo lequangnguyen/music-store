@@ -19,19 +19,21 @@ $(document).ready(function(){
   $("#form-cart").submit(function(e){
     $.get('/checklogin',
       function(data)
-   {   if (data==1) {
-         $('#login-modal').modal('show');
+       {   
+        if (data==1) {
+         e.preventDefault();
+         $('#login-modal').modal('show');   
        }
        else{
          var r=confirm("Are you sure to want to pay ?");
          if (r==true) {
-           window.location.href="/checkout";
+           $("#form-cart").unbind().submit(); 
+           // window.location.href="/checkout";
          }        
        }
    }
-
    );
-    e.preventDefault();
+
   });
 });
 // $( document ).ready(function() {
