@@ -16,7 +16,7 @@ function delete_cart(name){
    return confirm("Bạn có muốn xóa sản phẩm "+name+" trong giỏ hàng");
 }
 $(document).ready(function(){ 
-  $("#form-cart").submit(function(){
+  $("#form-cart").submit(function(e){
     $.get('/checklogin',
       function(data)
    {   if (data==1) {
@@ -29,7 +29,9 @@ $(document).ready(function(){
          }        
        }
    }
+
    );
+    e.preventDefault();
   });
 });
 // $( document ).ready(function() {

@@ -40,13 +40,13 @@
                 </div>
              </form>  
              <!-- Cart Total view -->
-             <div class="cart-view-total">
+             <div class="cart-view-total"> 
                <h4>Cart Totals</h4>
                <table class="aa-totals-table">
                  <tbody>
                    <tr>
                      <th>Total</th>
-                     <td></td>
+                     <td>${{$total}}</td>
                    </tr>
                  </tbody>
                </table>

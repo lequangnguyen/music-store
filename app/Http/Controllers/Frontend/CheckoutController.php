@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Orders;
 use Cart;
 
 class CheckoutController extends Controller
@@ -21,5 +22,6 @@ class CheckoutController extends Controller
     }
     function PostCheckout(Request $r){
         dd($r->all());
+        echo "asdasdasds";
     }
 }

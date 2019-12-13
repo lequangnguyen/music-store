@@ -22,11 +22,11 @@
  <section id="cart-view">
    <div class="container">
        
-     <div class="row">
+     <div class="row">  
        <div class="col-md-12">
          <div class="cart-view-area">
            <div class="cart-view-table">
-             <form id="form-cart">
+             <form id="form-cart" method="post">
                 @csrf
                <div class="table-responsive">
                   <table class="table">
