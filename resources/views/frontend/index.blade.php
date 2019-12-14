@@ -1,76 +1,12 @@
 @extends('frontend.layout.master')
 @section('content')
-  <!-- Start slider -->
   <section>
         <div class="large-banner">
             <img src="img/banners/banner-1920x700.jpg" alt="Men slide img" />
         </div>
   </section>
-  <!-- / slider -->
-  <!-- Start Promo section -->
-  <section id="aa-promo">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="aa-promo-area">
-            <div class="row">
-              <!-- promo left -->
-              <div class="col-md-5 no-padding">                
-                <div class="aa-promo-left">
-                  <div class="aa-promo-banner">                    
-                    <img src="img/man/polo-shirt-2.png" alt="img">
-                    <div class="aa-prom-content">
-                      <h4><a href="#">For Women</a></h4>                      
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- promo right -->
-              <div class="col-md-7 no-padding">
-                <div class="aa-promo-right">
-                  <div class="aa-single-promo-right">
-                    <div class="aa-promo-banner">                      
-                      <img src="img/man/polo-shirt-2.png" alt="img">
-                      <div class="aa-prom-content">
-                        <h4><a href="#">For Men</a></h4>                        
-                      </div>
-                    </div>
-                  </div>
-                  <div class="aa-single-promo-right">
-                    <div class="aa-promo-banner">                      
-                      <img src="img/man/polo-shirt-2.png" alt="img">
-                      <div class="aa-prom-content">
-                        <h4><a href="#">On Shoes</a></h4>                        
-                      </div>
-                    </div>
-                  </div>
-                  <div class="aa-single-promo-right">
-                    <div class="aa-promo-banner">                      
-                      <img src="img/man/polo-shirt-2.png" alt="img">
-                      <div class="aa-prom-content">
-                        <h4><a href="#">For Kids</a></h4>                        
-                      </div>
-                    </div>
-                  </div>
-                  <div class="aa-single-promo-right">
-                    <div class="aa-promo-banner">                      
-                      <img src="img/man/polo-shirt-2.png" alt="img">
-                      <div class="aa-prom-content">
-                        <h4><a href="#">For Bags</a></h4>                        
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- / Promo section -->
   <!-- Products section -->
-  <section id="aa-product">
+  <section id="aa-product" style="margin-top: 20px">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -79,31 +15,24 @@
               <div class="aa-product-inner">
                 <!-- start prduct navigation -->
                  <ul class="nav nav-tabs aa-products-tab">
-                    <li class="active"><a href="#men" data-toggle="tab">Men</a></li>
-                    <li><a href="#women" data-toggle="tab">Women</a></li>
+                    <li class="active"><a href="#men" data-toggle="tab">CD</a></li>
+                    <li><a href="#women" data-toggle="tab">DVD</a></li>
+                     <li><a href="#men" data-toggle="tab">Tape</a></li>
+                     <li><a href="#women" data-toggle="tab">Music Instruments</a></li>
                   </ul>
                   <!-- Tab panes -->
                   <div class="tab-content">
-                    <!-- Start men product category -->
                     <div class="tab-pane fade in active" id="men">
                       <ul class="aa-product-catg">
                         <!-- start single product item -->
                         <li>
                           <figure>
                             <a class="aa-product-img" href="#"><img src="img/man/polo-shirt-2.png" alt="polo shirt img"></a>
-                            <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
                               <figcaption>
                               <h4 class="aa-product-title"><a href="#">Polo T-Shirt</a></h4>
-                              <span class="aa-product-price">$45.50</span><span class="aa-product-price"><del>$65.50</del></span>
+                              <span class="aa-product-price">$45.50</span>
                             </figcaption>
-                          </figure>                        
-                          <div class="aa-product-hvr-content">
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><span class="fa fa-exchange"></span></a>
-                            <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#quick-view-modal"><span class="fa fa-search"></span></a>                          
-                          </div>
-                          <!-- product badge -->
-                          <span class="aa-badge aa-sale" href="#">SALE!</span>
+                          </figure>
                         </li>
                         <!-- start single product item -->
                         <li>
@@ -415,48 +344,11 @@
                                 </div>
                               </div>
                             </div>
-                            <!-- Modal view content -->
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <div class="aa-product-view-content">
-                                <h3>T-Shirt</h3>
-                                <div class="aa-price-block">
-                                  <span class="aa-product-view-price">$34.99</span>
-                                  <p class="aa-product-avilability">Avilability: <span>In stock</span></p>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis animi, veritatis quae repudiandae quod nulla porro quidem, itaque quis quaerat!</p>
-                                <h4>Size</h4>
-                                <div class="aa-prod-view-size">
-                                  <a href="#">S</a>
-                                  <a href="#">M</a>
-                                  <a href="#">L</a>
-                                  <a href="#">XL</a>
-                                </div>
-                                <div class="aa-prod-quantity">
-                                  <form action="">
-                                    <select name="" id="">
-                                      <option value="0" selected="1">1</option>
-                                      <option value="1">2</option>
-                                      <option value="2">3</option>
-                                      <option value="3">4</option>
-                                      <option value="4">5</option>
-                                      <option value="5">6</option>
-                                    </select>
-                                  </form>
-                                  <p class="aa-prod-category">
-                                    Category: <a href="#">Polo T-Shirt</a>
-                                  </p>
-                                </div>
-                                <div class="aa-prod-view-bottom">
-                                  <a href="#" class="aa-add-to-cart-btn"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
-                                  <a href="#" class="aa-add-to-cart-btn">View Details</a>
-                                </div>
-                              </div>
-                            </div>
                           </div>
                         </div>                        
-                      </div><!-- /.modal-content -->
-                    </div><!-- /.modal-dialog -->
-                  </div><!-- / quick view modal -->              
+                      </div>
+                    </div><
+                  </div>
               </div>
             </div>
           </div>
@@ -472,7 +364,7 @@
         <div class="col-md-12">        
           <div class="row">
             <div class="aa-banner-area">
-            <a href="#"><img src="img/fashion-banner.jpg" alt="fashion banner img"></a>
+            <a href="#"><img src="img/banners/banner-center.jpg" alt="fashion banner img"></a>
           </div>
           </div>
         </div>
@@ -489,7 +381,6 @@
               <!-- start prduct navigation -->
              <ul class="nav nav-tabs aa-products-tab">
                 <li class="active"><a href="#popular" data-toggle="tab">Popular</a></li>
-                <li><a href="#featured" data-toggle="tab">Featured</a></li>
                 <li><a href="#latest" data-toggle="tab">Latest</a></li>                    
               </ul>
               <!-- Tab panes -->
@@ -501,19 +392,11 @@
                     <li>
                       <figure>
                         <a class="aa-product-img" href="#"><img src="img/man/polo-shirt-2.png" alt="polo shirt img"></a>
-                        <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
                          <figcaption>
                           <h4 class="aa-product-title"><a href="#">Polo T-Shirt</a></h4>
-                          <span class="aa-product-price">$45.50</span><span class="aa-product-price"><del>$65.50</del></span>
+                          <span class="aa-product-price">$45.50</span>
                         </figcaption>
-                      </figure>                     
-                      <div class="aa-product-hvr-content">
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><span class="fa fa-exchange"></span></a>
-                        <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#quick-view-modal"><span class="fa fa-search"></span></a>                            
-                      </div>
-                      <!-- product badge -->
-                      <span class="aa-badge aa-sale" href="#">SALE!</span>
+                      </figure>
                     </li>
                      <!-- start single product item -->
                     <li>
@@ -987,19 +870,12 @@
       <div class="row">
         <div class="col-md-12">
           <div class="aa-latest-blog-area">
-            <h2>LATEST BLOG</h2>
+            <h2>UPCOMING LIVE SHOWS</h2>
             <div class="row">
-              <!-- single latest blog -->
               <div class="col-md-4 col-sm-4">
                 <div class="aa-latest-blog-single">
                   <figure class="aa-blog-img">                    
-                    <a href="#"><img src="img/promo-banner-1.jpg" alt="img"></a>  
-                      <figcaption class="aa-blog-img-caption">
-                      <span href="#"><i class="fa fa-eye"></i>5K</span>
-                      <a href="#"><i class="fa fa-thumbs-o-up"></i>426</a>
-                      <a href="#"><i class="fa fa-comment-o"></i>20</a>
-                      <span href="#"><i class="fa fa-clock-o"></i>June 26, 2016</span>
-                    </figcaption>                          
+                    <a href="#"><img src="img/banners/liveshow-banner.jpg" alt="img"></a>
                   </figure>
                   <div class="aa-blog-info">
                     <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a></h3>
@@ -1008,7 +884,6 @@
                   </div>
                 </div>
               </div>
-              <!-- single latest blog -->
               <div class="col-md-4 col-sm-4">
                 <div class="aa-latest-blog-single">
                   <figure class="aa-blog-img">                    
@@ -1027,7 +902,6 @@
                   </div>
                 </div>
               </div>
-              <!-- single latest blog -->
               <div class="col-md-4 col-sm-4">
                 <div class="aa-latest-blog-single">
                   <figure class="aa-blog-img">                    

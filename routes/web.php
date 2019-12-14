@@ -12,6 +12,7 @@
 */
 // Frontend
 Route::get('/', 'Frontend\IndexController@index');
+Route::get('/category/{id}', 'Frontend\CategoryController@index');
 Route::post('', 'Frontend\LoginController@PostLogin');
 
 Route::get('contact', 'Frontend\IndexController@GetContact');

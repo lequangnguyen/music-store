@@ -45,6 +45,7 @@
   </head>
   <body> 
   @include('frontend.layout.header')
+  @include('frontend.layout.menu')
   @yield('content')
   <!-- footer -->  
    @include('frontend.layout.footer')

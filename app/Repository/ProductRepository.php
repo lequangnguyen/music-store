@@ -75,11 +75,13 @@ class ProductRepository implements ProductRepositoryInterface
             ->paginate(15);
         return $products;
     }
-    public function getListProductsByCategoryId($id)
+    public function getListProductsByCategoryId($id, $limit, $orderBy)
     {
         // TODO: Implement getListProductsByCategoryId() method.
-        $products = DB::table('products')
-            ->where('category_id', '=',$id)->get();
+        $products = Products::where('category_id', $id)
+            ->orderBy($orderBy['name'], $orderBy['value'])
+            ->take($limit)
+            ->get();
 
         return $products;
     }
