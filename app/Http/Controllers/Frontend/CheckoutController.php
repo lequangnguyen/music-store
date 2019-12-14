@@ -25,7 +25,7 @@ class CheckoutController extends Controller
         $data['total']=Cart::total(0,"",".");
 		$order=new Orders;
 		$order->user_id=Auth::id();
-		$order->status='processing';
+		$order->status=0;
 		$order->save();
         foreach(Cart::content() as $row){
             $order_detail=new OrderDetail;
