@@ -17,11 +17,11 @@ function delete_cart(name){
 }
 $(document).ready(function(){ 
   $("#form-cart").submit(function(e){
+     e.preventDefault();
     $.get('/checklogin',
       function(data)
        {   
         if (data==1) {
-         e.preventDefault();
          $('#login-modal').modal('show');   
        }
        else{

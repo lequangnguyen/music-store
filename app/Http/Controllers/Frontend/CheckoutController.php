@@ -35,6 +35,7 @@ class CheckoutController extends Controller
             $order_detail->cost=round($row->price*$row->qty,0);
             $order_detail->save();
         }
+        Cart::destroy();
         return view('frontend.cart.checkout',$data);
     }
 }
