@@ -99,4 +99,24 @@ class ProductRepository implements ProductRepositoryInterface
             ->get();
         return $products;
     }
+
+    public function getMostPopularProducts($limit)
+    {
+        // TODO: Implement getMostPopularProducts() method.
+        $products = Products::orderBy('sale_count', 'desc')
+            ->take($limit)
+            ->get();
+
+        return $products;
+    }
+
+    public function getLatestProducts($limit)
+    {
+        // TODO: Implement getLatestProducts() method.
+        $products = Products::orderBy('created_at', 'desc')
+            ->take($limit)
+            ->get();
+
+        return $products;
+    }
 }

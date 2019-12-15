@@ -18,28 +18,20 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="#">CD <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Casual</a></li>
-                                <li><a href="#">Sports</a></li>
-                                <li><a href="#">Formal</a></li>
-                                <li><a href="#">Standard</a></li>
+                                <li><a href="#">CD Classical</a></li>
+                                <li><a href="#">CD Pop</a></li>
                             </ul>
                         </li>
                         <li><a href="#">DVD <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Kurta & Kurti</a></li>
-                                <li><a href="#">Trousers</a></li>
-                                <li><a href="#">Casual</a></li>
-                                <li><a href="#">Sports</a></li>
-                                <li><a href="#">Formal</a></li>
+                                <li><a href="#">DVD Classical</a></li>
+                                <li><a href="#">DVD Pop</a></li>
                             </ul>
                         </li>
                         <li><a href="#">Tape <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Kurta & Kurti</a></li>
-                                <li><a href="#">Trousers</a></li>
-                                <li><a href="#">Casual</a></li>
-                                <li><a href="#">Sports</a></li>
-                                <li><a href="#">Formal</a></li>
+                                <li><a href="#">Tape Classical</a></li>
+                                <li><a href="#">Tape Pop</a></li>
                             </ul>
                         </li>
                         <li><a href="#">Music Instruments</a></li>

@@ -12,7 +12,8 @@ interface ProductRepositoryInterface
     public function getListProducts();
     public function getListProductsByCategoryId($cate_id, $limit, $orderBy);
     public function getProduct($id);
-
+    public function getMostPopularProducts($limit);
+    public function getLatestProducts($limit);
     public function searchProducts($id, $search);
 
 }

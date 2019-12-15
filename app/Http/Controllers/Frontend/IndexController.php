@@ -5,31 +5,51 @@ namespace App\Http\Controllers\Frontend;
 use App\Constants;
 use App\Http\Controllers\Controller;
 use App\Repository\ProductRepositoryInterface;
+use App\Services\DataExchange;
 use Illuminate\Http\Request;
+
 class IndexController extends Controller
 {
     private $productRepository;
+    private $dataExchange;
 
     public function __construct(ProductRepositoryInterface $productRepository)
     {
         $this->productRepository = $productRepository;
+        $this->dataExchange = new DataExchange();
 
     }
-    function index(Request $request){
-        $cds = $this->productRepository->getListProductsByCategoryId(Constants::CATE_CD, 8, ['id', 'desc']);
-        $dvds = $this->productRepository->getListProductsByCategoryId(Constants::CATE_DVD, 8, ['id', 'desc']);
-        $tapes = $this->productRepository->getListProductsByCategoryId(Constants::CATE_TAPE, 8, ['id', 'desc']);
-        $music_instruments = $this->productRepository->getListProductsByCategoryId(Constants::CATE_MUSIC_INSTRUMENTS, 8, ['id', 'desc']);
-    	return view('frontend.index');
+
+    public function index(Request $request)
+    {
+        $cds = $this->dataExchange->exchangeProducts($this->productRepository->getListProductsByCategoryId(Constants::CATE_CD, 8, ['name' => 'id', 'value' => 'desc']));
+        $dvds = $this->dataExchange->exchangeProducts($this->productRepository->getListProductsByCategoryId(Constants::CATE_DVD, 8, ['name' => 'id', 'value' => 'desc']));
+        $tapes = $this->dataExchange->exchangeProducts($this->productRepository->getListProductsByCategoryId(Constants::CATE_TAPE, 8, ['name' => 'id', 'value' => 'desc']));
+        $music_instruments = $this->dataExchange->exchangeProducts($this->productRepository->getListProductsByCategoryId(Constants::CATE_MUSIC_INSTRUMENTS, 8, ['name' => 'id', 'value' => 'desc']));
+        $most_popular_products = $this->dataExchange->exchangeProducts($this->productRepository->getMostPopularProducts(8));
+        $latest_products = $this->dataExchange->exchangeProducts($this->productRepository->getLatestProducts(8));
+        return view('frontend.index', [
+            'cds' => $cds,
+            'dvds' => $dvds,
+            'tapes' => $tapes,
+            'music_instruments' => $music_instruments,
+            'most_popular_products' => $most_popular_products,
+            'latest_products' => $latest_products,
+        ]);
     }
-   
-    function get404(){
-    	return view('frontend.404');
+
+    public function get404()
+    {
+        return view('frontend.404');
     }
-    function contactUs(){
-    	return view('frontend.contact');
+
+    public function contactUs()
+    {
+        return view('frontend.contact');
     }
-    function aboutUs(){
+
+    public function aboutUs()
+    {
         return view('frontend.contact');
     }
 }
