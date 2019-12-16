@@ -63,8 +63,11 @@
                   <li class="hidden-xs"><a href="cart.html">My Cart</a></li>
                   <li class="hidden-xs"><a href="checkout.html">Checkout</a></li>
                   @if (Auth::check())
-                    <li class=""><a href="">Welcome {{Auth::user()->name}}</a>
-                      <ul><li><a href="/logout">Logout</a></li></ul>
+                    <li class="session-user"><a href="">Welcome {{Auth::user()->name}}</a>
+                      <ul class="user-dropdown">
+                        <li>Point:{{Session('point')}}</li>
+                        <li><a href="/logout">Logout</a></li>
+                      </ul>
                     </li>
                   @else
                     <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>

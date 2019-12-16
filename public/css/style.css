@@ -165,20 +165,22 @@ img {
 
 .aa-cart-view-btn {
   float: right;
-  border: none;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  padding: 15px 30px;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  -ms-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  transition: all 0.5s;
+    width: 100%;
+    border: none;
+    margin-top: 30px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
 }
 .aa-cart-view-btn:hover {
   background-color: #000;
@@ -354,8 +356,9 @@ img {
 #aa-header .aa-header-top .aa-header-top-right .aa-head-top-nav-right li {
   display: inline-block;
   text-align: right;
+  position: relative;
 }
-#aa-header .aa-header-top .aa-header-top-right .aa-head-top-nav-right li a {
+#aa-header .aa-header-top .aa-header-top-right .aa-head-top-nav-right>li>a {
   display: inline-block;
   color: #333333;
   border-right: 1px solid #ddd;
@@ -453,6 +456,7 @@ img {
   width: 120px;
   height: auto;
   display: block;
+  z-index: 2;
 }
 #aa-header .aa-header-bottom .aa-cartbox .aa-cart-link .fa-shopping-basket {
   z-index: 99;
@@ -1119,6 +1123,7 @@ img {
   background-color: rgba(0, 0, 0, 0.5);
 }
 .aa-product-catg li:hover figure .aa-add-card-btn {
+  display: none;
   -moz-transform: scale(1);
   -o-transform: scale(1);
   -ms-transform: scale(1);
@@ -1126,6 +1131,7 @@ img {
   transform: scale(1);
 }
 .aa-product-catg li:hover .aa-product-hvr-content {
+  display: none;
   -moz-transform: translateX(0%);
   -o-transform: translateX(0%);
   -ms-transform: translateX(0%);
@@ -3710,6 +3716,11 @@ img {
   }
 }
 @media (max-width: 767px) {
+  #aa-subscribe .aa-subscribe-area .aa-subscribe-form {
+    margin: 20px auto 0;
+    position: relative;
+     width: 100%;    
+}
   .navbar-default .navbar-toggle,
   .navbar-default .navbar-toggle {
     border-radius: 0;
@@ -4290,4 +4301,26 @@ img {
     padding: 5px 2px;
   }
 }
-
+.session-user:hover ul.user-dropdown
+{ 
+  display: block;
+  transition: 0.5s;
+  opacity: 1;
+}
+ul.user-dropdown>li{
+    display: block !important;
+    text-align: center !important;
+    padding: 3px 0;
+}
+ul.user-dropdown
+{   display: none;
+    position: absolute;
+    background: white;
+    width: 104%;
+    bottom: -55px;
+    border: 1px solid rgba(0, 0 ,0 ,0.2);
+    left: -4px;
+    z-index: 10;
+    opacity: 0;
+    transition: 0.5s;
+}
