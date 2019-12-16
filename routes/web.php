@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Frontend
+// Frontend 
 Route::get('/', 'Frontend\IndexController@GetIndex');
 Route::post('/login', 'Frontend\LoginController@PostLogin');
 Route::get('/logout', 'Frontend\LoginController@Logout');
