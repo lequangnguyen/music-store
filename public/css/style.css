@@ -165,20 +165,22 @@ img {
 
 .aa-cart-view-btn {
   float: right;
-  border: none;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  padding: 15px 30px;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  -ms-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  transition: all 0.5s;
+    width: 100%;
+    border: none;
+    margin-top: 30px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
 }
 .aa-cart-view-btn:hover {
   background-color: #000;
@@ -1119,6 +1121,7 @@ img {
   background-color: rgba(0, 0, 0, 0.5);
 }
 .aa-product-catg li:hover figure .aa-add-card-btn {
+  display: none;
   -moz-transform: scale(1);
   -o-transform: scale(1);
   -ms-transform: scale(1);
@@ -1126,6 +1129,7 @@ img {
   transform: scale(1);
 }
 .aa-product-catg li:hover .aa-product-hvr-content {
+  display: none;
   -moz-transform: translateX(0%);
   -o-transform: translateX(0%);
   -ms-transform: translateX(0%);
