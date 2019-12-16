@@ -65,7 +65,7 @@
                   @if (Auth::check())
                     <li class="session-user"><a href="">Welcome {{Auth::user()->name}}</a>
                       <ul class="user-dropdown">
-                        <li>Point:{{Session('point')}}</li>
+                        <li>Point:{{Auth::user()->point}}</li>
                         <li><a href="/logout">Logout</a></li>
                       </ul>
                     </li>

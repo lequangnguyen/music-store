@@ -62,9 +62,29 @@
                <table class="aa-totals-table">
                  <tbody>
                    <tr>
-                     <th>Total</th>
+                     <th>Subtotal</th>
                      <td>${{$total}}</td>
                    </tr>
+                   @if (Auth::check())
+                     <tr>
+                     <th>Discount</th>
+                     <td>@if (Auth::user()->point >=200)
+                       10%
+                     @else
+                       0% 
+                     @endif</td>
+                   </tr>
+                   <tr>
+                     <th>Total</th>
+                     <td>@if (Auth::user()->point >=200)
+                       ${{$discount}}
+                      @else
+                      ${{$total}}
+                     @endif</td>
+                   </tr>
+                  <input type="hidden" name="voucher" value="{{$has_discount}}">
+                  <input type="hidden" name="total" value="{{$total}}">
+                   @endif
                  </tbody>
                </table>
                <button type="submit" class="aa-cart-view-btn">Proced to Checkout</button>

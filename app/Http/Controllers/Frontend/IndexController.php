@@ -9,8 +9,6 @@ use App\User;
 class IndexController extends Controller
 {
     function GetIndex(){
-    	$user=User::find(Auth::id());
-    	session()->put('point', $user->point);
     	return view('frontend.index');
     }
    

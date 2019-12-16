@@ -20,21 +20,32 @@ class CheckoutController extends Controller
     	if (Auth::check()==false) {
     		return 1;
     	}
-    }
+        if (Cart::count()<=0) {
+           return 2;
+        }
+    } 
     function PostCheckout(Request $r){
         // dd((int)Cart::total()/10);
     	$data['cart']=Cart::content();
-        $data['total']=Cart::total(0,"",".");
+        $data['total']=$r->total;
+        $data['discount']=0;
+        $data['voucher']=0;
         $user=User::find(Auth::id());
 		$order=new Orders;
 		$order->user_id=Auth::id();
+        $order->code='ORDER-'.$order->id;
 		$order->status=0;
-        $user->point=$user->point+(int)Cart::total()/10;
-        if (Cart::count()<=0) {
-            return redirect('/cart');
-        }else{
-		$order->save();
+        $user->point=$user->point+$r->total/10;
         $user->save();
+        if ($r->voucher==1) {
+          $order->discount=1;
+          $data['discount']=$r->total*90/100;
+          $data['voucher']=$r->voucher;
+        }else{
+          $order->discount=0;
+          $data['voucher']=0;
+        }
+		$order->save();
         foreach(Cart::content() as $row){
             $order_detail=new OrderDetail;
             $order_detail->product_id=$row->id;
@@ -46,5 +57,5 @@ class CheckoutController extends Controller
         Cart::destroy();
         return view('frontend.cart.checkout',$data);
         }
-    }
+    
 }

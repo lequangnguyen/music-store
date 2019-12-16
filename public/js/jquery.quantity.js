@@ -23,12 +23,15 @@ $(document).ready(function(){
        {   
         if (data==1) {
          $('#login-modal').modal('show');   
-       }
+        }
        else{
+         if (data==2) {
+           alert("Your cart is empty");
+         }else{
          var r=confirm("Are you sure to want to pay ?");
          if (r==true) {
            $("#form-cart").unbind().submit(); 
-           // window.location.href="/checkout";
+           }
          }        
        }
    }

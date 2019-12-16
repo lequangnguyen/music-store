@@ -45,8 +45,24 @@
                <table class="aa-totals-table">
                  <tbody>
                    <tr>
-                     <th>Total</th>
+                     <th>Subtotal</th>
                      <td>${{$total}}</td>
+                   </tr>
+                   <tr>
+                     <th>Discount</th>
+                     <td>@if ($voucher==1)
+                       10%
+                     @else
+                       0% 
+                     @endif</td>
+                   </tr>
+                   <tr>
+                     <th>Total</th>
+                     <td>@if ($voucher==1)
+                       ${{$discount}}
+                      @else
+                      ${{$total}}
+                     @endif</td>
                    </tr>
                  </tbody>
                </table>
