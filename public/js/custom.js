@@ -354,6 +354,9 @@ jQuery(function($){
         // instead of a settings object
       ]
     }); 
-    
+    // POPUP LOGIN AND REGISTER
+   jQuery('.btn-register').click(function(e){
+      
+   });
 });
 
