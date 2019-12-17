@@ -13,7 +13,7 @@
            <div class="cart-view-table">
              <form action="">
                <div class="table-responsive">
-                  <table class="table">
+                  <table class="table"> 
                     <thead>
                       <tr>
                         <th></th>
@@ -48,9 +48,11 @@
                      <th>Subtotal</th>
                      <td>${{$total}}</td>
                    </tr>
-                   <tr>
+                   @if (Auth::check())
+                     <tr>
                      <th>Discount</th>
-                     <td>@if ($voucher==1)
+                     <td>
+                     @if ($voucher==1)
                        10%
                      @else
                        0% 
@@ -59,11 +61,12 @@
                    <tr>
                      <th>Total</th>
                      <td>@if ($voucher==1)
-                       ${{$discount}}
+                       ${{number_format($discount, 2)}}
                       @else
-                      ${{$total}}
-                     @endif</td>
-                   </tr>
+                      ${{number_format($total, 2)}}
+                    @endif
+                     </td>
+                    @endif
                  </tbody>
                </table>
              </div>
@@ -75,5 +78,4 @@
    </div>
  </section>
  <!-- / Cart view section -->
-
 @endsection

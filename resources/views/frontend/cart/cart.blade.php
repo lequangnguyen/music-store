@@ -63,7 +63,7 @@
                  <tbody>
                    <tr>
                      <th>Subtotal</th>
-                     <td>${{$total}}</td>
+                     <td>${{number_format($total, 2)}}</td>
                    </tr>
                    @if (Auth::check())
                      <tr>
@@ -77,10 +77,11 @@
                    <tr>
                      <th>Total</th>
                      <td>@if (Auth::user()->point >=200)
-                       ${{$discount}}
+                       ${{number_format($discount, 2)}}
                       @else
-                      ${{$total}}
-                     @endif</td>
+                      ${{number_format($total, 2)}}
+                      </td>
+                     @endif
                    </tr>
                   <input type="hidden" name="voucher" value="{{$has_discount}}">
                   <input type="hidden" name="total" value="{{$total}}">

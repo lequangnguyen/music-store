@@ -10,10 +10,10 @@ class CartController extends Controller
 {
     function GetCart(){
     	  $data['cart']=Cart::content();
-        $data['total']=Cart::total(0,"",".");
+        $data['total']=Cart::totalFloat();
         if (Auth::check()) {
           if (Auth::user()->point >=200 ) {
-          $data['discount']=Cart::total(0,"",".")*90/100;
+          $data['discount']=Cart::totalFloat()*90/100;
           $data['has_discount']=1;
           }
           else{
