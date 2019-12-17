@@ -81,7 +81,7 @@ class ProductRepository implements ProductRepositoryInterface
         $products = Products::where('category_id', $id)
             ->orderBy($orderBy['name'], $orderBy['value'])
             ->take($limit)
-            ->get();
+            ->paginate(6);
 
         return $products;
     }
@@ -100,13 +100,16 @@ class ProductRepository implements ProductRepositoryInterface
         return $products;
     }
 
-    public function getMostPopularProducts($limit)
+    public function getMostPopularProducts($cate_id = 0, $limit = 8)
     {
         // TODO: Implement getMostPopularProducts() method.
-        $products = Products::orderBy('sale_count', 'desc')
-            ->take($limit)
-            ->get();
-
+        $products = new Products();
+        $products = $products->newQuery();
+        $products->select('products.*');
+        if ($cate_id > 0) {
+            $products->where('products.category_id', '=', $cate_id);
+        }
+        $products = $products->orderBy('sale_count', 'desc')->take($limit)->get();
         return $products;
     }
 

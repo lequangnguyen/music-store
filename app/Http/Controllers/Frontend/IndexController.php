@@ -17,7 +17,6 @@ class IndexController extends Controller
     {
         $this->productRepository = $productRepository;
         $this->dataExchange = new DataExchange();
-
     }
 
     public function index(Request $request)
@@ -26,8 +25,9 @@ class IndexController extends Controller
         $dvds = $this->dataExchange->exchangeProducts($this->productRepository->getListProductsByCategoryId(Constants::CATE_DVD, 8, ['name' => 'id', 'value' => 'desc']));
         $tapes = $this->dataExchange->exchangeProducts($this->productRepository->getListProductsByCategoryId(Constants::CATE_TAPE, 8, ['name' => 'id', 'value' => 'desc']));
         $music_instruments = $this->dataExchange->exchangeProducts($this->productRepository->getListProductsByCategoryId(Constants::CATE_MUSIC_INSTRUMENTS, 8, ['name' => 'id', 'value' => 'desc']));
-        $most_popular_products = $this->dataExchange->exchangeProducts($this->productRepository->getMostPopularProducts(8));
+        $most_popular_products = $this->dataExchange->exchangeProducts($this->productRepository->getMostPopularProducts(0, 8));
         $latest_products = $this->dataExchange->exchangeProducts($this->productRepository->getLatestProducts(8));
+
         return view('frontend.index', [
             'cds' => $cds,
             'dvds' => $dvds,

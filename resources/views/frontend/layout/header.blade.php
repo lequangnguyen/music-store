@@ -124,7 +124,7 @@
               <!-- search box -->
               <div class="aa-search-box">
                 <form action="">
-                  <input type="text" name="" id="" placeholder="Search here ex. 'man' ">
+                  <input type="text" name="" id="" placeholder="Search here ex. 'rock' ">
                   <button type="submit"><span class="fa fa-search"></span></button>
                 </form>
               </div>

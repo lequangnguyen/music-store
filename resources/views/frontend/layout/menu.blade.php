@@ -15,27 +15,27 @@
                 <div class="navbar-collapse collapse">
                     <!-- Left nav -->
                     <ul class="nav navbar-nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#">CD <span class="caret"></span></a>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="{{route('category', ['id' => 1])}}">CD <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">CD Classical</a></li>
-                                <li><a href="#">CD Pop</a></li>
+                                <li><a href="{{route('category', ['id' => 6])}}">CD Classical</a></li>
+                                <li><a href="{{route('category', ['id' => 7])}}">CD Pop</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">DVD <span class="caret"></span></a>
+                        <li><a href="{{route('category', ['id' => 2])}}">DVD <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">DVD Classical</a></li>
-                                <li><a href="#">DVD Pop</a></li>
+                                <li><a href="{{route('category', ['id' => 8])}}">DVD Classical</a></li>
+                                <li><a href="{{route('category', ['id' => 9])}}">DVD Pop</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Tape <span class="caret"></span></a>
+                        <li><a href="{{route('category', ['id' => 3])}}">Tape <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Tape Classical</a></li>
-                                <li><a href="#">Tape Pop</a></li>
+                                <li><a href="{{route('category', ['id' => 10])}}">Tape Classical</a></li>
+                                <li><a href="{{route('category', ['id' => 11])}}">Tape Pop</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Music Instruments</a></li>
-                        <li><a href="#">Live Shows</a></li>
+                        <li><a href="{{route('category', ['id' => 4])}}">Music Instruments</a></li>
+                        <li><a href="{{route('category', ['id' => 5])}}">Live Shows</a></li>
                         <li><a href="#">Contact Us</a></li>
                         <li><a href="#">About Us</a></li>
                     </ul>
