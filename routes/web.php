@@ -23,7 +23,7 @@ Route::group(['prefix'=>'product'],function(){
 
 });
 Route::group(['prefix'=>'category'],function(){
-    Route::get('/', 'Frontend\CategoryController@getP   ');
+    Route::get('/', 'Frontend\CategoryController@getProducts');
 
 });
 Route::group(['prefix'=>'cart'],function(){

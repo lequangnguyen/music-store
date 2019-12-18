@@ -89,6 +89,7 @@
  </section> -->
  
   <!-- Subscribe section -->
+<<<<<<< Updated upstream
   <!-- <section id="aa-subscribe">
     <div class="container">
       <div class="row">
@@ -105,6 +106,9 @@
       </div>
     </div>
   </section> -->
+=======
+  
+>>>>>>> Stashed changes
   <!-- / Subscribe section -->
 
 @endsection
