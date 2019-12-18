@@ -25,7 +25,11 @@ class RegisterRequest extends FormRequest
     {
         return [
             'email'=>'required|email|min:5',
-            'password'=>'required|min:5'
+            'password'=>'required|min:5',
+            'confirm_password'=>'required|same:password',
+            'your_name'=>'required',
+            'address'=>'required',
+            'telephone'=>'required'
         ];
     }
     public function messages(){
