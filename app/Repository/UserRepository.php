@@ -12,15 +12,12 @@ class UserRepository implements UserRepositoryInterface
     public function addUser($data)
     {
         // TODO: Implement addUser() method.
-        $user = new Users();
+        $user = new Users();    
         $user->name = $data->name;
         $user->email = $data->email;
         $user->password = bcrypt($data->password);
         $user->save();
-
-
     }
-
     public function updateUser($data, $id)
     {
         // TODO: Implement editUser() method.

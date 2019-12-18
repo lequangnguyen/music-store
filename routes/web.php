@@ -16,7 +16,7 @@ Route::post('/login', 'Frontend\LoginController@PostLogin');
 Route::get('/logout', 'Frontend\LoginController@Logout');
 
 Route::post('/post_register', 'Frontend\RegisterController@PostRegister');
-Route::get('/register', 'Frontend\RegisterController@GetRegister');
+Route::get('/register', ['as'=>'register','uses'=>'Frontend\RegisterController@GetRegister']);
 
 Route::get('contact', 'Frontend\IndexController@GetContact');
 Route::get('404', 'Frontend\IndexController@Get404');

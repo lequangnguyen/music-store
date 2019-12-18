@@ -82,7 +82,7 @@
               <!-- Tab panes -->
               <div class="tab-content">
                 <div class="tab-pane fade in active" id="description">
-                  <p>{{$product->description}}</p>
+                  <p>{!!$product->description!!}</p>
                 </div>
                 <div class="tab-pane fade " id="review">
                  <div class="aa-product-review-area">

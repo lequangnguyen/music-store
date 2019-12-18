@@ -28,6 +28,11 @@
               <div class="col-md-12">
                 <div class="aa-myaccount-register">                 
                  <h4>Register</h4>
+                 @if (session('Notice'))
+                   <div class="alert alert-success">
+                  <strong>{{session('Notice')}}</strong> 
+                   </div>
+                 @endif
                  <form action="/post_register" class="aa-login-form" method="post">
                    @csrf
                     <label for="">Email address<span>*</span></label>
