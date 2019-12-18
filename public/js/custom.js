@@ -355,8 +355,16 @@ jQuery(function($){
       ]
     }); 
     // POPUP LOGIN AND REGISTER
-   jQuery('.btn-register').click(function(e){
-      
-   });
+   // jQuery('.btn-register').click(function(e){ 
+   //    e.preventDefault(e);
+   //    jQuery('.modal-content-login').fadeOut( 400, function() {
+   //      jQuery('.modal-content-register').css({"display":"block"}).fadeIn(400);
+   //   });
+   // });
+   // jQuery('.close').click(function(e){ 
+   //    e.preventDefault(e);
+   //    jQuery('.modal-content-login').fadeIn('fast');
+   //    jQuery('.modal-content-register').css({"display":"none"}).fadeOut("fast");
+   // });
 });
 

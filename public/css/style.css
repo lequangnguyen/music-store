@@ -2502,6 +2502,7 @@ img {
   text-align: left;
   margin-bottom: 15px;
 }
+
 #checkout .cart-view-area .cart-view-table .cart-view-total .aa-totals-table {
   border: 1px solid #ccc;
   width: 100%;
@@ -2755,7 +2756,22 @@ img {
 .aa-login-form .aa-lost-password a {
   color: #555;
 }
-
+.modal-content-register .aa-login-form input[type="text"],
+.modal-content-register .aa-login-form input[type="password"] {
+  border: 1px solid #ccc;
+  font-size: 16px;
+  height: 40px;
+  margin-bottom: 0px;
+  padding: 10px;
+  width: 100%;
+}
+.modal-content-register .aa-login-form button {
+    font-size: 14px;
+    padding: 8px 20px;
+    margin-right: 5px;
+    margin-top: 10px;
+     float: inherit; 
+}
 /*---- LOGIN MODAL ----*/
 
 #login-modal .modal-content {
@@ -2780,7 +2796,9 @@ img {
 #login-modal .modal-dialog .aa-register-now a {
   margin-left: 5px;
 }
-
+#login-modal .modal-content-register{
+  display: none;
+}
 /*==================
  BLOG ARCHIVE  PAGE
 ====================*/

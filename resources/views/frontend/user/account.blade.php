@@ -24,29 +24,25 @@
      <div class="row">
        <div class="col-md-12">
         <div class="aa-myaccount-area">         
-            <div class="row">
-              <div class="col-md-6">
-                <div class="aa-myaccount-login">
-                <h4>Login</h4>
-                 <form action="" class="aa-login-form">
-                  <label for="">Username or Email address<span>*</span></label>
-                   <input type="text" placeholder="Username or email">
-                   <label for="">Password<span>*</span></label>
-                    <input type="password" placeholder="Password">
-                    <button type="submit" class="aa-browse-btn">Login</button>
-                    <label class="rememberme" for="rememberme"><input type="checkbox" id="rememberme"> Remember me </label>
-                    <p class="aa-lost-password"><a href="#">Lost your password?</a></p>
-                  </form>
-                </div>
-              </div>
-              <div class="col-md-6">
+            <div class="row">       
+              <div class="col-md-12">
                 <div class="aa-myaccount-register">                 
                  <h4>Register</h4>
-                 <form action="" class="aa-login-form">
-                    <label for="">Username or Email address<span>*</span></label>
-                    <input type="text" placeholder="Username or email">
+                 <form action="/post_register" class="aa-login-form" method="post">
+                   @csrf
+                    <label for="">Email address<span>*</span></label>
+                    <input type="text" placeholder="Email" name="email">
+                     {!!ShowError($errors,'email')!!}
+                    <label for="">Your name<span>*</span></label>
+                    <input type="text" placeholder="Your name" name="your_name">
                     <label for="">Password<span>*</span></label>
-                    <input type="password" placeholder="Password">
+                    <input type="password" placeholder="Password" name="password">
+                    <label for="">Confirm Password<span>*</span></label>
+                    <input type="password" placeholder="Confirm Password" name="confirm_password">
+                     <label for="">Address<span>*</span></label>
+                    <input type="text" placeholder="Your adress" name="address">
+                     <label for="">Telephone Number<span>*</span></label>
+                    <input type="text" placeholder="Telephone number" name="telephone">
                     <button type="submit" class="aa-browse-btn">Register</button>                    
                   </form>
                 </div>

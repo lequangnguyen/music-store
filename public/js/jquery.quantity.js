@@ -36,7 +36,18 @@ $(document).ready(function(){
        }
    }
    );
-
+  });
+  $("#register-form").submit(function(e){
+     e.preventDefault();
+    var email= $("input[name=email_register]").val();
+    var password = $("input[name=password_register]").val();
+    var confirm_password = $("input[name=confrim_password]").val();
+    // alert(email+","+password+","+confirm_password);
+    // $.ajax({
+    //   type:'POST',
+    //   url:'/register',
+    //   data:{name}
+    // });
   });
 });
 // $( document ).ready(function() {
