@@ -2,10 +2,10 @@
 
 namespace App\Http\Middleware;
 use Illuminate\Support\Facades\Auth;
-use Closure;
-use Cart;
 
-class CheckOut
+use Closure;
+
+class AccountUser
 {
     /**
      * Handle an incoming request.
@@ -15,10 +15,11 @@ class CheckOut
      * @return mixed
      */
     public function handle($request, Closure $next)
-    {   if (Auth::check()==false || !$request->isMethod('post')) {
-           return redirect()->back();
-        }else
+    {   
+        if (Auth::check()==true) {
             return $next($request);
         }
-        
+        else
+            return redirect()->route('home');
+    }
 }

@@ -11,8 +11,10 @@
 |
 */
 // Frontend 
-Route::get('/', 'Frontend\IndexController@GetIndex');
+Route::get('/', ['as'=>'home','uses'=>'Frontend\IndexController@GetIndex']);
 Route::post('/login', 'Frontend\LoginController@PostLogin');
+Route::get('/logout', 'Frontend\LoginController@Logout');
+
 Route::get('/logout', 'Frontend\LoginController@Logout');
 
 Route::post('/post_register', 'Frontend\RegisterController@PostRegister');
@@ -36,10 +38,15 @@ Route::group(['prefix'=>'cart'],function(){
     Route::get('del/{rowId}', 'Frontend\CartController@DeleteCart'); 
 }); 
 Route::get('checklogin', 'Frontend\CheckoutController@CheckLogin');
-// Route::get('checkout', 'Frontend\CheckoutController@GetCheckout')->middleware('CheckOut');
+Route::get('checkout', 'Frontend\CheckoutController@GetCheckout')->middleware('CheckOut');
 Route::post('checkout', 'Frontend\CheckoutController@PostCheckout')->middleware('CheckOut');
-Route::group(['prefix'=>'user'],function(){
-    Route::get('account', 'Frontend\UserController@GetAccount');
+Route::get('/register', ['as'=>'register','uses'=>'Frontend\RegisterController@GetRegister']);
+Route::group(['prefix'=>'user','middleware'=>'AccountUser'],function(){
+    Route::get('account', ['as'=>'profileUser','uses'=>'Frontend\UserController@GetAccount']);
+    Route::get('/edit', ['as'=>'EditUser','uses'=>'Frontend\UserController@GetEditUser']);
+    Route::post('/edit', 'Frontend\UserController@PostEditUser');
+     Route::get('/change', ['as'=>'ChangePassword','uses'=>'Frontend\UserController@GetChangePassword']);
+      Route::post('/change', 'Frontend\UserController@PostChangePassword');
 });
   
 

@@ -12,8 +12,6 @@ use App\User;
 class CheckoutController extends Controller
 {
     function GetCheckout(){
-    	$data['cart']=Cart::content();
-        $data['total']=Cart::total(0,"",".");
     	return view('frontend.cart.checkout',$data);
     }
     function CheckLogin(){
@@ -34,7 +32,6 @@ class CheckoutController extends Controller
             $user                     = User::find(Auth::id());
             $order                    = new Orders;
             $order->user_id           = Auth::id();
-            $order->code              = 'ORDER-'.$order->id;
             $order->status            = 0;
             $user->point              = $user->point + $r->total/10;
             if ($r->voucher == 1 ) {
@@ -47,6 +44,8 @@ class CheckoutController extends Controller
                 $data['voucher']          = 0;
             }
             $user->save();
+            $order->save();
+            $order->code              = 'ORDER-'.$order->id;
             $order->save();
             foreach(Cart::content() as $row){
                 $order_detail             = new OrderDetail;

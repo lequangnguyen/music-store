@@ -168,7 +168,7 @@
                   {{-- expr --}}
                   <li>
                   <figure>
-                    <a class="aa-product-img" href="/product/detail/{{$object->id}}"><img src="{{$object->image}}" alt="polo shirt img"></a>
+                    <a class="aa-product-img" href="/product/{{$object->id}}"><img src="{{$object->image}}" alt="polo shirt img"></a>
                     <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
                      <figcaption>
                       <h4 class="aa-product-title"><a href="#">{{$object->name}}</a></h4>

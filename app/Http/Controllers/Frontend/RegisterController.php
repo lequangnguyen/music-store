@@ -17,6 +17,7 @@ class RegisterController extends Controller
         $user->phone = $r->telephone;
         $user->email = $r->email;
         $user->address = $r->address;
+        $user->type = 2;
         $user->password = bcrypt($r->password);
         $user->save();
       return redirect()->route('register')->with('Notice', 'Register successfully!');

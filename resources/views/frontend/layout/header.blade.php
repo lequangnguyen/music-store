@@ -63,7 +63,7 @@
                   <li class="hidden-xs"><a href="cart.html">My Cart</a></li>
                   <li class="hidden-xs"><a href="checkout.html">Checkout</a></li>
                   @if (Auth::check())
-                    <li class="session-user"><a href="">Welcome {{Auth::user()->name}}</a>
+                    <li class="session-user"><a href="/user/account">Welcome {{Auth::user()->name}}</a>
                       <ul class="user-dropdown">
                         <li>Point:{{Auth::user()->point}}</li>
                         <li><a href="/logout">Logout</a></li>
