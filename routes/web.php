@@ -45,8 +45,10 @@ Route::group(['prefix'=>'user','middleware'=>'AccountUser'],function(){
     Route::get('account', ['as'=>'profileUser','uses'=>'Frontend\UserController@GetAccount']);
     Route::get('/edit', ['as'=>'EditUser','uses'=>'Frontend\UserController@GetEditUser']);
     Route::post('/edit', 'Frontend\UserController@PostEditUser');
-     Route::get('/change', ['as'=>'ChangePassword','uses'=>'Frontend\UserController@GetChangePassword']);
-      Route::post('/change', 'Frontend\UserController@PostChangePassword');
+    Route::get('/change', ['as'=>'ChangePassword','uses'=>'Frontend\UserController@GetChangePassword']);
+    Route::post('/change', 'Frontend\UserController@PostChangePassword');
+    Route::get('/order/{order_id}', ['as'=>'DetailOrder','uses'=>'Frontend\UserController@GetOrderDetail']);
+   Route::get('/delete_order/{order_id}', ['as'=>'DetailOrder','uses'=>'Frontend\UserController@GetDeleteDetail']);
 });
   
 

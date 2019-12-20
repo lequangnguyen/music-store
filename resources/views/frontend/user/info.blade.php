@@ -68,21 +68,18 @@
                  <table class="order-table">
                     <tr>
                       <th>Order Code</th>
-                      <th>Name</th>
                       <th>Discount</th>
+                      <th>Status</th>
                       <th>Total</th>
                       <th></th>
                     </tr>
                     @foreach ($order as $row)
                     <tr>
-                      <th>{{$row->code}}</th>
-                      <th>{{$user->name}}</th>
-                      <th>@if($row->discount==1)10%@else 0%@endif</th>
-                      <th>@foreach ($total as $value){
-                         {{$value}}
-                      }
-                      @endforeach</th>
-                      <th></th>
+                      <td>{{$row->code}}</td>
+                      <td>@if($row->discount==1)10% @else 0% @endif</td>
+                      <td>@if($row->status==0)Not Delivery @else Delivered @endif</td>
+                      <td>${{$row->total}}</td>
+                      <td><a href="/user/order/{{$row->order_id}}">Detail</a>/<a class="delete_order_client" href="/user/delete_order/{{$row->order_id}}">Delete</a></td>
                     </tr>
                     @endforeach
                  </table>

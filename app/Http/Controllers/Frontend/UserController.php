@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\{Users,OrderDetail,Orders};
 use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\AccountUser;
@@ -13,16 +14,12 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     function GetAccount(){
-        $data['total']=array();
     	$data['user']=Auth::user();	
-        $data['order']=Orders::where('user_id',Auth::id())->get();
-        // $data['total']=OrderDetail::where('order_id',$data['order']->id)->sum('cost');
-        foreach ($data['order'] as $key=> $value) {
-            $value=OrderDetail::where('order_id',$value->id)->sum('cost');
-            $key='value';
-            array_push($data['total'],$value);
-        }
-        // dd($data);
+        $data['order'] = DB::table('orders')->select('code','order_id','discount','status',DB::raw('SUM(cost) as total'))
+            ->leftJoin('order_detail', 'orders.id', '=', 'order_detail.order_id')
+            ->groupBy('order_id')
+            ->get();
+        // dd($data['order']);
     	return view('frontend.user.info',$data);
     }
     function GetEditUser(){
@@ -49,5 +46,31 @@ class UserController extends Controller
         }else
           return redirect()->route('ChangePassword')->with('Notice','Your old password is not correct!'); 
         dd($user);
+    }
+
+    function GetOrderDetail($order_id){    
+        // $order_detail=DB::table('order_detail')
+        //     ->leftJoin('orders', 'order_detail.order_id', '=', 'orders.id')
+        //     ->groupBy('order_id')
+        //     ->get();
+        $data['product']=DB::table('order_detail')
+        ->Join('products', 'products.id', '=', 'order_detail.product_id')
+        ->Join('orders', 'orders.id', '=', 'order_detail.order_id')
+        ->where('order_id','=',$order_id)
+        ->get();
+        // $data['total']=DB::table('order_detail')->select(DB::raw('SUM(price*quantity) as total'))
+        // ->Join('products', 'products.id', '=', 'order_detail.product_id')
+        // ->Join('orders', 'orders.id', '=', 'order_detail.order_id')
+        // ->where('order_id','=',$order_id)
+        // ->get();
+         $data['total']=OrderDetail::where('order_id','=',$order_id)->sum('cost');
+         $data['discount']=OrderDetail::where('order_id','=',$order_id)->sum('cost')*90/100;
+        // dd( $data['total']);
+        return view('frontend.user.order',$data) ;
+    }
+    function GetDeleteDetail($order_id){
+      $order=Orders::find($order_id);
+      $order->delete();
+      return redirect()->back();
     }
 }

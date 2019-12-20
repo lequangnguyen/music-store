@@ -42,45 +42,12 @@ $(document).ready(function(){
     var email= $("input[name=email_register]").val();
     var password = $("input[name=password_register]").val();
     var confirm_password = $("input[name=confrim_password]").val();
-    // alert(email+","+password+","+confirm_password);
-    // $.ajax({
-    //   type:'POST',
-    //   url:'/register',
-    //   data:{name}
-    // });
+  });
+
+  $(".delete_order_client").click(function(){
+   confirm("Are you sure to want to delete your order ?");
+    // if (r==true) {
+    //   return true;
+    // }
   });
 });
-// $( document ).ready(function() {
-//   //  $.('#form-cart').submit(function(){
-//   //     alert('adsad');
-//   //  $.get('/checklogin',
-//   //     function(data)
-//   //  {   if (data==1) {
-//   //        $('#login-modal').modal('show');
-//   //      }
-//   //      else{
-//   //        var r=confirm("Are you sure to want to pay ?");
-//   //        if (r==true) {
-//   //          window.location.href="/checkout";
-//   //        }        
-//   //      }
-//   //  }
-//   //  );
-//   // });
-// });
-
-// function check_out(){
-//    $.get('/checklogin',
-//       function(data)
-//    {   if (data==1) {
-//          $('#login-modal').modal('show');
-//        }
-//        else{
-//          var r=confirm("Are you sure to want to pay ?");
-//          if (r==true) {
-//            window.location.href="/checkout";
-//          }        
-//        }
-//    }
-//    );
-// }
