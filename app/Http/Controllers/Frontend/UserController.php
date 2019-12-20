@@ -19,10 +19,9 @@ class UserController extends Controller
         // $data['total']=OrderDetail::where('order_id',$data['order']->id)->sum('cost');
         foreach ($data['order'] as $key=> $value) {
             $value=OrderDetail::where('order_id',$value->id)->sum('cost');
-            $key='value';
             array_push($data['total'],$value);
-        }
-        // dd($data);
+        }   
+        dd($data['total']);
     	return view('frontend.user.info',$data);
     }
     function GetEditUser(){
