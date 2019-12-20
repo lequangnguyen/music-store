@@ -13,8 +13,12 @@ class LoginController extends Controller
      function PostLogin(LoginRequest $r){
     	 $email=$r->email;
     	 $password=$r->password;
-    	 Auth::attempt(['email' => $email, 'password' => $password]);
-    	 return redirect()->back();
+    	 if (Auth::attempt(['email' => $email, 'password' => $password])) {
+            return redirect()->back();
+         }else{
+            return redirect()->back()->with('unlogin','Wrong password!')->withInput();
+         }
+    	 
     }
      function Logout(){
      	Auth::logout();

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Users;
+use App\Models\{Users,OrderDetail,Orders};
 use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\AccountUser;
 use App\Http\Requests\{EditUserRequest,ChangePasswordRequest};
@@ -13,7 +13,16 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     function GetAccount(){
+        $data['total']=array();
     	$data['user']=Auth::user();	
+        $data['order']=Orders::where('user_id',Auth::id())->get();
+        // $data['total']=OrderDetail::where('order_id',$data['order']->id)->sum('cost');
+        foreach ($data['order'] as $key=> $value) {
+            $value=OrderDetail::where('order_id',$value->id)->sum('cost');
+            $key='value';
+            array_push($data['total'],$value);
+        }
+        // dd($data);
     	return view('frontend.user.info',$data);
     }
     function GetEditUser(){

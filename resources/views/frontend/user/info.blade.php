@@ -61,6 +61,33 @@
                  </table>
                 </div>
               </div>
+              {{-- History --}}
+              <div class="col-md-12">
+                <div class="aa-myaccount-register">                 
+                 <h4>Order History</h4>
+                 <table class="order-table">
+                    <tr>
+                      <th>Order Code</th>
+                      <th>Name</th>
+                      <th>Discount</th>
+                      <th>Total</th>
+                      <th></th>
+                    </tr>
+                    @foreach ($order as $row)
+                    <tr>
+                      <th>{{$row->code}}</th>
+                      <th>{{$user->name}}</th>
+                      <th>@if($row->discount==1)10%@else 0%@endif</th>
+                      <th>@foreach ($total as $value){
+                         {{$value}}
+                      }
+                      @endforeach</th>
+                      <th></th>
+                    </tr>
+                    @endforeach
+                 </table>
+                </div>
+              </div>
             </div>          
          </div>
        </div>

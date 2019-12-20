@@ -8,7 +8,7 @@
      <div class="container">
       <div class="aa-catg-head-banner-content">
         <h2>Account Page</h2>
-        <ol class="breadcrumb">
+        <ol class="breadcrumb"> 
           <li><a href="index.html">Home</a></li>                   
           <li class="active">Account</li>
         </ol>

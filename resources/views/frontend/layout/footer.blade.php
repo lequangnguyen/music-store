@@ -99,6 +99,11 @@
         <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           <h4>Login or Register</h4>
+          @if (session('unlogin'))
+            <div class="alert alert-danger">
+                  <strong>{{session('unlogin')}}</strong> 
+              </div>
+          @endif
           <form class="aa-login-form" method="post" action="login"> 
             @csrf
             <label for="">Username or Email address<span>*</span></label>
