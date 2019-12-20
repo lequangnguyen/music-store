@@ -15,11 +15,21 @@ class UserController extends Controller
 {
     function GetAccount(){
     	$data['user']=Auth::user();	
+<<<<<<< HEAD
         $data['order'] = DB::table('orders')->select('code','order_id','discount','status',DB::raw('SUM(cost) as total'))
             ->leftJoin('order_detail', 'orders.id', '=', 'order_detail.order_id')
             ->groupBy('order_id')
             ->get();
         // dd($data['order']);
+=======
+        $data['order']=Orders::where('user_id',Auth::id())->get();
+        // $data['total']=OrderDetail::where('order_id',$data['order']->id)->sum('cost');
+        foreach ($data['order'] as $key=> $value) {
+            $value=OrderDetail::where('order_id',$value->id)->sum('cost');
+            array_push($data['total'],$value);
+        }   
+        dd($data['total']);
+>>>>>>> 349beb0f5fdf4c946a42e524a09640cad07fb14c
     	return view('frontend.user.info',$data);
     }
     function GetEditUser(){
