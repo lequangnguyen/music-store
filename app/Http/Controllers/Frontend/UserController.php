@@ -19,6 +19,7 @@ class UserController extends Controller
             ->leftJoin('order_detail', 'orders.id', '=', 'order_detail.order_id')
             ->groupBy('order_id')
             ->where('user_id','=',Auth::id())
+            ->orderBy('status')
             ->get();
         // dd($data['order']);
     	return view('frontend.user.info',$data);
@@ -61,12 +62,14 @@ class UserController extends Controller
         ->get();
          $data['total']=OrderDetail::where('order_id','=',$order_id)->sum('cost');
          $data['discount']=OrderDetail::where('order_id','=',$order_id)->sum('cost')*90/100;
-        // dd( $data['total']);
+        // dd( $data['product']);
         return view('frontend.user.order',$data) ;
     }
-    function GetDeleteDetail($order_id){
+    function GetCancelDetail($order_id){
       $order=Orders::find($order_id);
-      $order->delete();
+      $order->status=2;
+      $order->save();
+      // dd($order);
       return redirect()->back();
     }
 }

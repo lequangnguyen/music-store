@@ -2,31 +2,16 @@
 @section('content')
  
   <!-- catg header banner section -->
-  <section id="aa-catg-head-banner">
-    <img src="img/fashion/fashion-header-bg-8.jpg" alt="fashion img">
-    <div class="aa-catg-head-banner-area">
-     <div class="container">
-      <div class="aa-catg-head-banner-content">
-        <h2>Account Page</h2>
-        <ol class="breadcrumb">
-          <li><a href="index.html">Home</a></li>                   
-          <li class="active">Account</li>
-        </ol>
-      </div>
-     </div>
-   </div>
-  </section>
-  <!-- / catg header banner section -->
 
  <!-- Cart view section -->
- <section id="aa-myaccount">
+ <section id="aa-myaccount ">
    <div class="container">
      <div class="row">
        <div class="col-md-12">
         <div class="aa-myaccount-area">         
             <div class="row">        
               <div class="col-md-12">
-                <div class="aa-myaccount-register">                 
+                <div class="aa-myaccount ">                 
                  <h4>Info user</h4>
                  @if (session('Notice'))
                    <div class="alert alert-success">
@@ -77,9 +62,11 @@
                     <tr>
                       <td>{{$row->code}}</td>
                       <td>@if($row->discount==1)10% @else 0% @endif</td>
-                      <td>@if($row->status==0)Not Delivery @else Delivered @endif</td>
+                      <td>@if($row->status==0)Not Delivery @elseif($row->status==1) Delivered @else Cancel @endif</td>
                       <td>${{$row->total}}</td>
-                      <td><a href="/user/order/{{$row->order_id}}">Detail</a>/<a class="delete_order_client" href="/user/delete_order/{{$row->order_id}}">Delete</a></td>
+                      <td><a href="/user/order/{{$row->order_id}}">Detail</a>/@if ($row->status!=1)
+                        <a class="delete_order_client" href="/user/cancel_order/{{$row->order_id}}">Cancel</a>
+                      @endif</td>
                     </tr>
                     @endforeach
                  </table>

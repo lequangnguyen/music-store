@@ -2698,6 +2698,9 @@ img {
   padding: 100px 0;
   width: 100%;
 }
+#aa-myaccount .aa-myaccount-area.account{
+ /* padding-top: 30px;*/
+}
 #aa-myaccount .aa-myaccount-area h4 {
   border-bottom: 1px solid #ccc;
   font-size: 25px;

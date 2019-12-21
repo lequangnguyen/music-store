@@ -48,7 +48,7 @@ Route::group(['prefix'=>'user','middleware'=>'AccountUser'],function(){
     Route::get('/change', ['as'=>'ChangePassword','uses'=>'Frontend\UserController@GetChangePassword']);
     Route::post('/change', 'Frontend\UserController@PostChangePassword');
     Route::get('/order/{order_id}', ['as'=>'DetailOrder','uses'=>'Frontend\UserController@GetOrderDetail']);
-   Route::get('/delete_order/{order_id}', ['as'=>'DetailOrder','uses'=>'Frontend\UserController@GetDeleteDetail']);
+   Route::get('/cancel_order/{order_id}', ['as'=>'DetailOrder','uses'=>'Frontend\UserController@GetCancelDetail']);
 });
   
 
