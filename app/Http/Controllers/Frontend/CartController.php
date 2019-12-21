@@ -9,6 +9,7 @@ use Cart;
 class CartController extends Controller
 {
     function GetCart(){
+        Cart::setGlobalTax(0);
     	  $data['cart']=Cart::content();
         $data['total']=Cart::totalFloat();
         if (Auth::check()) {
@@ -31,7 +32,7 @@ class CartController extends Controller
       	'qty'=>	$r->quantity,
       	'price'=>$product->price,
       	'weight'=>0,
-      	'options'=>['image'=>$product->image],
+      	'options'=>['image'=>env('IMG_URL').$product->image],
       ]);
      return redirect('cart');
     }
@@ -44,4 +45,3 @@ class CartController extends Controller
       return redirect()->back();
     }
 }
- 

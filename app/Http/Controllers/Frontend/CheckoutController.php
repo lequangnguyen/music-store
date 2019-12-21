@@ -11,9 +11,9 @@ use App\User;
 
 class CheckoutController extends Controller
 {
-    function GetCheckout(){
-    	return view('frontend.cart.checkout',$data);
-    }
+//    function GetCheckout(){
+//    	return view('frontend.cart.checkout',$data);
+//    }
     function CheckLogin(){
     	if (Auth::check()==false) {
     		return 1;

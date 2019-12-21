@@ -39,7 +39,7 @@
                                 @foreach($products as $product)
                                     <li>
                                         <figure>
-                                            <a class="aa-product-img" href="#"><img src="{{$product->image}}"
+                                            <a class="aa-product-img" href="/product/{{$product->id}}"><img src="{{$product->image}}"
                                                                                     alt="{{$product->name}}"></a>
                                             <figcaption>
                                                 <h4 class="aa-product-title"><a href="#">{{$product->name}}e</a></h4>

@@ -17,9 +17,9 @@
                     <thead>
                       <tr>
                         <th></th>
-                        <th></th>
-                        <th>Product</th>
-                        <th>Price</th>
+                        <th>Product Image</th>
+                        <th>Product Name</th>
+                        <th>Price Unit</th>
                         <th>Quantity</th>
                         <th>Total</th>
                       </tr>
