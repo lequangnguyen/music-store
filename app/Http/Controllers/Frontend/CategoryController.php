@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Categories;
 use App\Models\Products;
 use App\Repository\ProductRepositoryInterface;
 use App\Services\DataExchange;
@@ -31,7 +32,14 @@ class CategoryController extends Controller
         }
         $products = $this->dataExchange->exchangeProducts($products->orderBy('id', 'desc')->paginate(6)->appends($query));
         $top_selling_products = $this->dataExchange->exchangeProducts($this->productRepository->getMostPopularProducts($id, 4));
-        return view('frontend.categories.index', ['products' => $products, 'top_selling_products' => $top_selling_products]);
+        $cate_info = Categories::findOrFail($id);
+        $cate_info->image = env("IMG_URL").$cate_info->image;
+
+        return view('frontend.categories.index', [
+            'products' => $products,
+            'top_selling_products' => $top_selling_products,
+            'cate_info' => $cate_info
+        ]);
     }
 
 }

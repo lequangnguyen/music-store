@@ -1,14 +1,13 @@
 @extends('frontend.layout.master')
 @section('content')
     <section id="aa-catg-head-banner">
-        <img src="img/fashion/fashion-header-bg-8.jpg" alt="fashion img">
+        <img src="{{$cate_info->image}}" alt="{{$cate_info->name}}">
         <div class="aa-catg-head-banner-area">
             <div class="container">
                 <div class="aa-catg-head-banner-content">
-                    <h2>Fashion</h2>
                     <ol class="breadcrumb">
-                        <li><a href="index.html">Home</a></li>
-                        <li class="active">Women</li>
+                        <li><a href="/">Home</a></li>
+                        <li class="active">{{$cate_info->name}}</li>
                     </ol>
                 </div>
             </div>
@@ -27,7 +26,7 @@
                                 <form action="" class="aa-sort-form">
                                     <label for="">Sort by</label>
                                     <select name="">
-                                        <option value="1" selected="Default">Default</option>
+                                        <option value="1" selected="Default"><a href="/">Default</a></option>
                                         <option value="2">Name</option>
                                         <option value="3">Price</option>
                                         <option value="4">Date</option>

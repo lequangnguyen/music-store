@@ -81,7 +81,7 @@ class ProductRepository implements ProductRepositoryInterface
         $products = Products::where('category_id', $id)
             ->orderBy($orderBy['name'], $orderBy['value'])
             ->take($limit)
-            ->paginate(6);
+            ->get();
 
         return $products;
     }

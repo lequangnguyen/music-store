@@ -196,7 +196,6 @@
                             <div class="aa-support-single">
                                 <span class="fa fa-truck"></span>
                                 <h4>FREE SHIPPING</h4>
-                                <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, nobis.</P>
                             </div>
                         </div>
                         <!-- single support -->
@@ -204,7 +203,6 @@
                             <div class="aa-support-single">
                                 <span class="fa fa-clock-o"></span>
                                 <h4>30 DAYS MONEY BACK</h4>
-                                <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, nobis.</P>
                             </div>
                         </div>
                         <!-- single support -->
@@ -212,7 +210,6 @@
                             <div class="aa-support-single">
                                 <span class="fa fa-phone"></span>
                                 <h4>SUPPORT 24/7</h4>
-                                <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, nobis.</P>
                             </div>
                         </div>
                     </div>
