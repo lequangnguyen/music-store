@@ -8,7 +8,7 @@
      <div class="row">
        <div class="col-md-12">
         <div class="checkout-area">
-          <h2 style="text-align: center">Your order is successfully !</h2>
+          <h2 style="text-align: center">Your order</h2>
           <div class="cart-view-area">
            <div class="cart-view-table">
              <form action="">
@@ -25,14 +25,14 @@
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach ($cart as $row)
+                      @foreach ($product as $row)
                         <tr>
                           <td></td>
-                          <td><a href="#"><img src="{{$row->options->image}}" alt="img"></a></td>
+                          <td><a href="#"><img src="{{$row->image}}" alt="img"></a></td>
                           <td><a class="aa-cart-title" href="#">{{$row->name}}</a></td>
                           <td>${{number_format($row->price,0,"",".")}}</td>
-                          <td>{{$row->qty}}</td>
-                        <td>${{number_format($row->price*$row->qty,0,"",".")}}</td>
+                          <td>{{$row->quantity}}</td>
+                        <td>${{number_format($row->price*$row->quantity,0,"",".")}}</td>
                       </tr>
                       @endforeach                 
                       </tbody>
@@ -48,27 +48,29 @@
                      <th>Subtotal</th>
                      <td>${{$total}}</td>
                    </tr>
-                   @if (Auth::check())
-                     <tr>
+                  <tr>
                      <th>Discount</th>
                      <td>
-                     @if ($voucher==1)
+                     @if ($row->discount==1)
                        10%
                      @else
-                       0% 
-                     @endif</td>
-                   </tr>
-                   <tr>
-                     <th>Total</th>
-                     <td>@if ($voucher==1)
-                       ${{number_format($discount, 2)}}
-                      @else
-                      ${{number_format($total, 2)}}
-                    @endif
+                       0%
+                     @endif 
                      </td>
-                    @endif
+                   </tr>
+                    <tr>
+                     <th>Total</th>
+                     <td>
+                     @if ($row->discount==1)
+                      ${{number_format($discount, 2)}}
+                     @else
+                      ${{number_format($total, 2)}}
+                     @endif 
+                     </td>
+                   </tr>
                  </tbody>
                </table>
+               <button class="aa-cart-view-btn"><a href="/user/account">Back to profie</a ></button>
              </div>
            </div>
          </div>

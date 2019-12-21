@@ -56,7 +56,17 @@
                   <li class="hidden-xs"><a href="wishlist.html">Wishlist</a></li>
                   <li class="hidden-xs"><a href="cart.html">My Cart</a></li>
                   <li class="hidden-xs"><a href="checkout.html">Checkout</a></li>
-                  <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>
+                  @if (Auth::check())
+                    <li class="session-user"><a href="/user/account">Welcome {{Auth::user()->name}}</a>
+                      <ul class="user-dropdown">
+                        <li>Point:{{Auth::user()->point}}</li>
+                        <li><a href="/logout">Logout</a></li>
+                      </ul>
+                    </li>
+                  @else
+                    <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>
+                  @endif
+                  
                 </ul>
               </div>
             </div>
@@ -85,10 +95,10 @@
               <!-- / logo  -->
                <!-- cart box -->
               <div class="aa-cartbox">
-                <a class="aa-cart-link" href="#">
+                <a class="aa-cart-link" href="/cart">
                   <span class="fa fa-shopping-basket"></span>
                   <span class="aa-cart-title">SHOPPING CART</span>
-                  <span class="aa-cart-notify">2</span>
+                  <span class="aa-cart-notify">{{Cart::count()}}</span>
                 </a>
                 <div class="aa-cartbox-summary">
                   <ul>

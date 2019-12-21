@@ -10,25 +10,45 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Frontend
-Route::get('/', 'Frontend\IndexController@index');
+Route::get('/', ['as'=>'home','uses'=>'Frontend\IndexController@index']);
+Route::post('/login', 'Frontend\LoginController@PostLogin');
+Route::get('/logout', 'Frontend\LoginController@Logout');
 Route::get('/category/{id}', 'Frontend\CategoryController@index')->name('category');
-Route::post('', 'Frontend\LoginController@PostLogin');
+
+Route::get('/logout', 'Frontend\LoginController@Logout');
+
+Route::post('/post_register', 'Frontend\RegisterController@PostRegister');
+Route::get('/register', ['as'=>'register','uses'=>'Frontend\RegisterController@GetRegister']);
 
 Route::get('contact', 'Frontend\IndexController@GetContact');
 Route::get('404', 'Frontend\IndexController@Get404');
 
 Route::group(['prefix'=>'product'],function(){
-    Route::get('/', 'Frontend\ProductController@GetProduct');
-    Route::get('detail', 'Frontend\ProductController@GetProductDetail');
+    Route::get('{id}', 'Frontend\ProductController@GetProductDetail');
+
+});
+Route::group(['prefix'=>'category'],function(){
+    Route::get('/', 'Frontend\CategoryController@getProducts');
+
 });
 Route::group(['prefix'=>'cart'],function(){
-    Route::get('', 'Frontend\CheckoutController@GetCart');
-    Route::get('checkout', 'Frontend\CheckoutController@GetCheckout');
-    Route::get('wishlist', 'Frontend\CheckoutController@GetWishlist');
-});
-Route::group(['prefix'=>'user'],function(){
-    Route::get('account', 'Frontend\UserController@GetAccount');
+    Route::get('', 'Frontend\CartController@GetCart');
+    Route::get('addtocart', 'Frontend\CartController@AddToCart');
+    Route::get('update/{rowId}/{qty}', 'Frontend\CartController@UpdateCart');
+    Route::get('del/{rowId}', 'Frontend\CartController@DeleteCart'); 
+}); 
+Route::get('checklogin', 'Frontend\CheckoutController@CheckLogin');
+Route::get('checkout', 'Frontend\CheckoutController@GetCheckout')->middleware('CheckOut');
+Route::post('checkout', 'Frontend\CheckoutController@PostCheckout')->middleware('CheckOut');
+Route::get('/register', ['as'=>'register','uses'=>'Frontend\RegisterController@GetRegister']);
+Route::group(['prefix'=>'user','middleware'=>'AccountUser'],function(){
+    Route::get('account', ['as'=>'profileUser','uses'=>'Frontend\UserController@GetAccount']);
+    Route::get('/edit', ['as'=>'EditUser','uses'=>'Frontend\UserController@GetEditUser']);
+    Route::post('/edit', 'Frontend\UserController@PostEditUser');
+    Route::get('/change', ['as'=>'ChangePassword','uses'=>'Frontend\UserController@GetChangePassword']);
+    Route::post('/change', 'Frontend\UserController@PostChangePassword');
+    Route::get('/order/{order_id}', ['as'=>'DetailOrder','uses'=>'Frontend\UserController@GetOrderDetail']);
+   Route::get('/cancel_order/{order_id}', ['as'=>'DetailOrder','uses'=>'Frontend\UserController@GetCancelDetail']);
 });
   
 
