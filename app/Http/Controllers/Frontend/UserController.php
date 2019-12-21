@@ -15,9 +15,10 @@ class UserController extends Controller
 {
     function GetAccount(){
     	$data['user']=Auth::user();	
-        $data['order'] = DB::table('orders')->select('code','order_id','discount','status',DB::raw('SUM(cost) as total'))
+        $data['order'] = DB::table('orders')->select('user_id','code','order_id','discount','status',DB::raw('SUM(cost) as total'))
             ->leftJoin('order_detail', 'orders.id', '=', 'order_detail.order_id')
             ->groupBy('order_id')
+            ->where('user_id','=',Auth::id())
             ->get();
         // dd($data['order']);
     	return view('frontend.user.info',$data);
@@ -58,11 +59,6 @@ class UserController extends Controller
         ->Join('orders', 'orders.id', '=', 'order_detail.order_id')
         ->where('order_id','=',$order_id)
         ->get();
-        // $data['total']=DB::table('order_detail')->select(DB::raw('SUM(price*quantity) as total'))
-        // ->Join('products', 'products.id', '=', 'order_detail.product_id')
-        // ->Join('orders', 'orders.id', '=', 'order_detail.order_id')
-        // ->where('order_id','=',$order_id)
-        // ->get();
          $data['total']=OrderDetail::where('order_id','=',$order_id)->sum('cost');
          $data['discount']=OrderDetail::where('order_id','=',$order_id)->sum('cost')*90/100;
         // dd( $data['total']);

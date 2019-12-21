@@ -42,7 +42,7 @@
                     </thead>
                     <tbody>
                      
-                      @foreach ($product as $row)
+                      @foreach ($cart as $row)
                         <tr>
                           <td><a class="remove" onclick="return delete_cart('{{$row->name}}')" href="/cart/del/{{$row->rowId}}"><fa class="fa fa-close"></fa></a></td>
                           <td><a href="#"><img src="{{$row->options->image}}" alt="img"></a></td>
