@@ -42,7 +42,9 @@
               <!-- / header top left -->
               <div class="aa-header-top-right">
                 <ul class="aa-head-top-nav-right">
+                    @if (Auth::check())
                   <li><a href="/user/account">My Account</a></li>
+                    @endif
                   <li class="hidden-xs"><a href="/cart">My Cart</a></li>
                   @if (Auth::check())
                     <li class="session-user"><a href="/user/account">Welcome {{Auth::user()->name}}</a>

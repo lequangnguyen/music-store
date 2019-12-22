@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Models\Categories;
 use App\Models\Products;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -133,7 +134,8 @@ class ProductRepository implements ProductRepositoryInterface
     }
     public function getCateById($id){
         $product = Products::find($id);
-        $category= DB::table('categories')->where('id','=',$product->category_id)->get();
+        $category= Categories::find($product->category_id);
+        $category->image = env('IMG_URL').$category->image;
         return $category;
     }
 }

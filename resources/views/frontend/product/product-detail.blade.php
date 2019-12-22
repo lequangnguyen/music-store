@@ -2,15 +2,15 @@
 @section('content')
   <!-- catg header banner section -->
   <section id="aa-catg-head-banner">
-   <img src="img/fashion/fashion-header-bg-8.jpg" alt="fashion img">
+   <img src="{{$category->image}}" alt="fashion img">
    <div class="aa-catg-head-banner-area">
      <div class="container">
       <div class="aa-catg-head-banner-content">
-        <h2>T-Shirt</h2>
+{{--        <h2>T-Shirt</h2>--}}
         <ol class="breadcrumb">
           <li><a href="index.html">Home</a></li>         
           <li><a href="#">Product</a></li>
-          <li class="active">T-shirt</li>
+          <li class="active">{{$product->name}}</li>
         </ol>
       </div>
      </div>
@@ -36,7 +36,7 @@
                   <div class="aa-product-view-content">
                     <h3>{{$product->name}}</h3>
                      <div class="aa-info-block">
-                      <span class="aa-product-view-price">${{$product->price}}</span>
+                      <span class="aa-product-view-price">Price: ${{$product->price}}</span>
                       <p class="aa-product-avilability">Avilability: <span>In stock</span></p>
                       <p class="aa-product-author">Author: <span>In stock</span></p>
                       <p class="aa-product-company">Company: <span>In stock</span></p>
@@ -51,11 +51,7 @@
                           <option value="6">6</option> 
                         </select>
                       <p class="aa-prod-category">
-                        Category: 
-                          @foreach ($category as $object)
-                            <a href="#">{{$object->name}}</a>
-                          @endforeach
-                          
+                        Category: <a href="/category/{{$category->id}}">{{$category->name}}</a>
                       </p>
                     </div>
                     <div class="aa-prod-view-bottom">
