@@ -6,6 +6,7 @@ use App\Repository\ProductRepositoryInterface;
 use App\Repository\CategoryRepositoryInterface;
 use App\Services\DataExchange;
 use Illuminate\Http\Request;
+use App\Models\{Artists,Products};
 use App\Http\Controllers\Controller;
 
 
@@ -25,11 +26,12 @@ class ProductController extends Controller
     	return view('frontend.product.product');
     }
     function GetProductDetail($id){
+
+        // dd($this->productRepository->getProduct($id));
     	return view('frontend.product.product-detail', [
     	    'product' => $this->productRepository->getProduct($id),
             'category'=>$this->productRepository->getCateById($id),
             'rale_product'=>$this->dataExchange->exchangeProducts($this->productRepository->getRelateProduct($id,4))
         ]);
     }
-
 }
