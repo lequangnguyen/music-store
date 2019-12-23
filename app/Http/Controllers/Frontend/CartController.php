@@ -4,12 +4,23 @@ namespace App\Http\Controllers\Frontend;
 use App\Models\Products;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Cart;
 class CartController extends Controller
 {
     function GetCart(){
+        Cart::setGlobalTax(0);
     	  $data['cart']=Cart::content();
-        $data['total']=Cart::total(0,"",".");
+        $data['total']=Cart::totalFloat();
+        if (Auth::check()) {
+          if (Auth::user()->point >=200 ) {
+          $data['discount']=Cart::totalFloat()*90/100;
+          $data['has_discount']=1;
+          }
+          else{
+          $data['has_discount']=0;
+           }
+        }      
        	return view('frontend.cart.cart',$data);
     }
 
@@ -21,7 +32,7 @@ class CartController extends Controller
       	'qty'=>	$r->quantity,
       	'price'=>$product->price,
       	'weight'=>0,
-      	'options'=>['image'=>$product->image],
+      	'options'=>['image'=>env('IMG_URL').$product->image],
       ]);
      return redirect('cart');
     }
@@ -34,4 +45,3 @@ class CartController extends Controller
       return redirect()->back();
     }
 }
- 

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\LoginRequest;
+use App\Http\Requests\{LoginRequest,RegisterRequest};
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -13,11 +13,15 @@ class LoginController extends Controller
      function PostLogin(LoginRequest $r){
     	 $email=$r->email;
     	 $password=$r->password;
-    	 Auth::attempt(['email' => $email, 'password' => $password]);
-    	 return redirect()->back();
+    	 if (Auth::attempt(['email' => $email, 'password' => $password])) {
+            return redirect()->back();
+         }else{
+            return redirect()->back()->with('unlogin','Wrong password!')->withInput();
+         }
+    	 
     }
      function Logout(){
      	Auth::logout();
-     	return redirect()->back(); 	 
+     	return redirect()->route('home'); 	 
     }
 }

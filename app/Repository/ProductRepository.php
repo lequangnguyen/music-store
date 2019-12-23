@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Models\Categories;
 use App\Models\Products;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -75,11 +76,13 @@ class ProductRepository implements ProductRepositoryInterface
             ->paginate(15);
         return $products;
     }
-    public function getListProductsByCategoryId($id)
+    public function getListProductsByCategoryId($id, $limit, $orderBy)
     {
         // TODO: Implement getListProductsByCategoryId() method.
-        $products = DB::table('products')
-            ->where('category_id', '=',$id)->get();
+        $products = Products::where('category_id', $id)
+            ->orderBy($orderBy['name'], $orderBy['value'])
+            ->take($limit)
+            ->get();
 
         return $products;
     }
@@ -88,6 +91,7 @@ class ProductRepository implements ProductRepositoryInterface
     {
         // TODO: Implement getProduct() method.
         $product = Products::find($id);
+        $product->image = env('IMG_URL').$product->image;
         return $product;
     }
     public function searchProducts($id, $search)
@@ -95,6 +99,29 @@ class ProductRepository implements ProductRepositoryInterface
         $products = DB::table('products')
             ->where([['category_id', '=',$id],['name','like','%'.$search.'%']])
             ->get();
+        return $products;
+    }
+
+    public function getMostPopularProducts($cate_id = 0, $limit = 8)
+    {
+        // TODO: Implement getMostPopularProducts() method.
+        $products = new Products();
+        $products = $products->newQuery();
+        $products->select('products.*');
+        if ($cate_id > 0) {
+            $products->where('products.category_id', '=', $cate_id);
+        }
+        $products = $products->orderBy('sale_count', 'desc')->take($limit)->get();
+        return $products;
+    }
+
+    public function getLatestProducts($limit)
+    {
+        // TODO: Implement getLatestProducts() method.
+        $products = Products::orderBy('created_at', 'desc')
+            ->take($limit)
+            ->get();
+
         return $products;
     }
     public function getRelateProduct($id,$limit)
@@ -106,8 +133,9 @@ class ProductRepository implements ProductRepositoryInterface
         return $rela_products;
     }
     public function getCateById($id){
-         $product = Products::find($id);
-         $category= DB::table('categories')->where('id','=',$product->category_id)->get();
-         return $category;
+        $product = Products::find($id);
+        $category= Categories::find($product->category_id);
+        $category->image = env('IMG_URL').$category->image;
+        return $category;
     }
-} 
+}

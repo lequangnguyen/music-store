@@ -30,11 +30,11 @@ class LoginRequest extends FormRequest
     }
     public function messages(){
         return [
-            'email.required'=>'Không được để trống Email',
-            'email.email'=>'Email không đúng định dạng',
-            'email.min'=>'Email không được nhỏ hơn 5 ký tự',
-            'password.required'=>'Không được để trống pasword',
-            'pasword.min'=>'password không được nhỏ hơn 5 ký tự'
+            'email.required'=>'Email must be filled!',
+            'email.email'=>'Email invalidate',
+            'email.min'=>'Email must be more 5 char',
+            'password.required'=>'Password must be filled!',
+            'pasword.min'=>'Pasword must be more 5 char'
         ];
     }
 }

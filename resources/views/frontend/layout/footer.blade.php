@@ -95,10 +95,15 @@
   <!-- Login Modal -->  
   <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">                      
+      <div class="modal-content modal-content-login">                      
         <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           <h4>Login or Register</h4>
+          @if (session('unlogin'))
+            <div class="alert alert-danger">
+                  <strong>{{session('unlogin')}}</strong> 
+              </div>
+          @endif
           <form class="aa-login-form" method="post" action="login"> 
             @csrf
             <label for="">Username or Email address<span>*</span></label>
@@ -111,14 +116,20 @@
             <label for="rememberme" class="rememberme"><input type="checkbox" id="rememberme"> Remember me </label>
             <p class="aa-lost-password"><a href="#">Lost your password?</a></p>
             <div class="aa-register-now">
-              Don't have an account?<a href="account.html">Register now!</a>
+              Don't have an account?<a href="/register" class="btn-register">Register now!</a>
             </div>
           </form>
         </div>                        
       </div><!-- /.modal-content -->
+      {{-- Modal Register --}}
     </div><!-- /.modal-dialog -->
-  </div>    
 
+    <!-- /.modal-content -->
+    </div>
+  </div>    
+  {{-- Register Modal --}}
+<!-- /.modal-dialog -->
+  </div>   
   <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
