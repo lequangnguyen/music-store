@@ -19,7 +19,6 @@
                   <div class="dropdown">
                     <a class="btn dropdown-toggle" href="#" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                       <img src="img/flag/english.jpg" alt="english flag">ENGLISH
-                      <span class="caret"></span>
                     </a>
                   </div>
                 </div>
@@ -28,7 +27,6 @@
                   <div class="dropdown">
                     <a class="btn dropdown-toggle" href="#" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                       <i class="fa fa-usd"></i>USD
-                      <span class="caret"></span>
                     </a>
                   </div>
                 </div>
@@ -77,7 +75,7 @@
                 <!-- Text based logo -->
                 <a href="/">
                   <span class="fa fa-shopping-cart"></span>
-                  <p>music<strong>Shop</strong> <span>Your Musics</span></p>
+                  <p>Rhythm<strong>House</strong> <span>Music is yours</span></p>
                 </a>
                 <!-- img based logo -->
                 <!-- <a href="index.html"><img src="img/logo.jpg" alt="logo img"></a> -->

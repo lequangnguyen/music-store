@@ -2,7 +2,7 @@
 @section('content')
     <section>
         <div class="large-banner">
-            <img src="img/banners/banner-1920x700.jpg" alt="Men slide img"/>
+            <img src="img/banners/banner-1920x700.jpg" alt="img"/>
         </div>
     </section>
     <!-- Products section -->
@@ -27,10 +27,10 @@
                                             @foreach($cds as $cd)
                                                 <li>
                                                     <figure>
-                                                        <a class="aa-product-img" href="#"><img
+                                                        <a class="aa-product-img" href="/product/{{$cd->id}}"><img
                                                                 src="{{$cd->image}}" alt="{{$cd->name}}"></a>
                                                         <figcaption>
-                                                            <h4 class="aa-product-title"><a href="#">{{$cd->name}}</a>
+                                                            <h4 class="aa-product-title"><a href="/product/{{$cd->id}}">{{$cd->name}}</a>
                                                             </h4>
                                                             <span class="aa-product-price">${{$cd->price}}</span>
                                                         </figcaption>
@@ -48,10 +48,10 @@
                                             @foreach($dvds as $dvd)
                                                 <li>
                                                     <figure>
-                                                        <a class="aa-product-img" href="#"><img
+                                                        <a class="aa-product-img" href="/product/{{$dvd->id}}"><img
                                                                 src="{{$dvd->image}}" alt="{{$dvd->name}}"></a>
                                                         <figcaption>
-                                                            <h4 class="aa-product-title"><a href="#">{{$dvd->name}}</a>
+                                                            <h4 class="aa-product-title"><a href="/product/{{$dvd->id}}">{{$dvd->name}}</a>
                                                             </h4>
                                                             <span class="aa-product-price">${{$dvd->price}}</span>
                                                         </figcaption>
@@ -72,7 +72,7 @@
                                                         <a class="aa-product-img" href="#"><img
                                                                 src="{{$tape->image}}" alt="{{$tape->name}}"></a>
                                                         <figcaption>
-                                                            <h4 class="aa-product-title"><a href="#">{{$tape->name}}</a>
+                                                            <h4 class="aa-product-title"><a href="/product/{{$tape->id}}">{{$tape->name}}</a>
                                                             </h4>
                                                             <span class="aa-product-price">${{$tape->price}}</span>
                                                         </figcaption>
@@ -90,10 +90,10 @@
                                             @foreach($music_instruments as $music_instrument)
                                                 <li>
                                                     <figure>
-                                                        <a class="aa-product-img" href="#"><img
+                                                        <a class="aa-product-img" href="/product/{{$music_instrument->id}}"><img
                                                                 src="{{$music_instrument->image}}" alt="{{$music_instrument->name}}"></a>
                                                         <figcaption>
-                                                            <h4 class="aa-product-title"><a href="#">{{$music_instrument->name}}</a>
+                                                            <h4 class="aa-product-title"><a href="/product/{{$music_instrument->id}}">{{$music_instrument->name}}</a>
                                                             </h4>
                                                             <span class="aa-product-price">${{$music_instrument->price}}</span>
                                                         </figcaption>
@@ -149,10 +149,10 @@
                                         @foreach($most_popular_products as $most_popular_product)
                                         <li>
                                             <figure>
-                                                <a class="aa-product-img" href="#"><img src="{{$most_popular_product->image}}"
+                                                <a class="aa-product-img" href="/product/{{$most_popular_product->id}}"><img src="{{$most_popular_product->image}}"
                                                                                         alt="{{$most_popular_product->name}}"></a>
                                                 <figcaption>
-                                                    <h4 class="aa-product-title"><a href="#">{{$most_popular_product->name}}</a></h4>
+                                                    <h4 class="aa-product-title"><a href="/product/{{$most_popular_product->id}}">{{$most_popular_product->name}}</a></h4>
                                                     <span class="aa-product-price">${{$most_popular_product->price}}</span>
                                                 </figcaption>
                                             </figure>
@@ -165,10 +165,10 @@
                                         @foreach($latest_products as $latest_product)
                                         <li>
                                             <figure>
-                                                <a class="aa-product-img" href="#"><img src="{{$latest_product->image}}"
+                                                <a class="aa-product-img" href="/product/{{$latest_product->id}}"><img src="{{$latest_product->image}}"
                                                                                         alt="{{$latest_product->name}}"></a>
                                                 <figcaption>
-                                                    <h4 class="aa-product-title"><a href="#">{{$latest_product->name}}</a></h4>
+                                                    <h4 class="aa-product-title"><a href="/product/{{$latest_product->id}}">{{$latest_product->name}}</a></h4>
                                                     <span class="aa-product-price">${{$latest_product->price}}</span>
                                                 </figcaption>
                                             </figure>
@@ -226,66 +226,20 @@
                     <div class="aa-latest-blog-area">
                         <h2>UPCOMING LIVE SHOWS</h2>
                         <div class="row">
-                            <div class="col-md-4 col-sm-4">
-                                <div class="aa-latest-blog-single">
-                                    <figure class="aa-blog-img">
-                                        <a href="#"><img src="img/banners/liveshow-banner.jpg" alt="img"></a>
-                                    </figure>
-                                    <div class="aa-blog-info">
-                                        <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, ad?
-                                            Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit dicta enim
-                                            repellendus animi. Expedita quas reprehenderit incidunt, voluptates
-                                            corporis.</p>
-                                        <a href="#" class="aa-read-mor-btn">Read more <span
-                                                class="fa fa-long-arrow-right"></span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-4">
-                                <div class="aa-latest-blog-single">
-                                    <figure class="aa-blog-img">
-                                        <a href="#"><img src="img/promo-banner-3.jpg" alt="img"></a>
-                                        <figcaption class="aa-blog-img-caption">
-                                            <span href="#"><i class="fa fa-eye"></i>5K</span>
-                                            <a href="#"><i class="fa fa-thumbs-o-up"></i>426</a>
-                                            <a href="#"><i class="fa fa-comment-o"></i>20</a>
-                                            <span href="#"><i class="fa fa-clock-o"></i>June 26, 2016</span>
-                                        </figcaption>
-                                    </figure>
-                                    <div class="aa-blog-info">
-                                        <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, ad?
-                                            Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit dicta enim
-                                            repellendus animi. Expedita quas reprehenderit incidunt, voluptates
-                                            corporis.</p>
-                                        <a href="#" class="aa-read-mor-btn">Read more <span
-                                                class="fa fa-long-arrow-right"></span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-4">
-                                <div class="aa-latest-blog-single">
-                                    <figure class="aa-blog-img">
-                                        <a href="#"><img src="img/promo-banner-1.jpg" alt="img"></a>
-                                        <figcaption class="aa-blog-img-caption">
-                                            <span href="#"><i class="fa fa-eye"></i>5K</span>
-                                            <a href="#"><i class="fa fa-thumbs-o-up"></i>426</a>
-                                            <a href="#"><i class="fa fa-comment-o"></i>20</a>
-                                            <span href="#"><i class="fa fa-clock-o"></i>June 26, 2016</span>
-                                        </figcaption>
-                                    </figure>
-                                    <div class="aa-blog-info">
-                                        <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, ad?
-                                            Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit dicta enim
-                                            repellendus animi. Expedita quas reprehenderit incidunt, voluptates
-                                            corporis.</p>
-                                        <a href="#" class="aa-read-mor-btn">Read more <span
-                                                class="fa fa-long-arrow-right"></span></a>
-                                    </div>
-                                </div>
-                            </div>
+                            <ul class="aa-product-catg">
+                                @foreach($liveshows as $liveshow)
+                                    <li>
+                                        <figure>
+                                            <a class="aa-product-img" href="/product/{{$liveshow->id}}"><img src="{{$liveshow->image}}"
+                                                                                                                         alt="{{$liveshow->name}}"></a>
+                                            <figcaption>
+                                                <h4 class="aa-product-title"><a href="/product/{{$liveshow->id}}">{{$liveshow->name}}</a></h4>
+                                                <span class="aa-product-price">${{$liveshow->price}}</span>
+                                            </figcaption>
+                                        </figure>
+                                    </li>
+                                @endforeach
+                            </ul>
                         </div>
                     </div>
                 </div>

@@ -20,7 +20,8 @@ Route::get('/logout', 'Frontend\LoginController@Logout');
 Route::post('/post_register', 'Frontend\RegisterController@PostRegister');
 Route::get('/register', ['as'=>'register','uses'=>'Frontend\RegisterController@GetRegister']);
 
-Route::get('contact', 'Frontend\IndexController@GetContact');
+Route::get('contact-us', 'Frontend\IndexController@contactUs');
+Route::get('about-us', 'Frontend\IndexController@aboutUs');
 Route::get('404', 'Frontend\IndexController@Get404');
 
 Route::group(['prefix'=>'product'],function(){

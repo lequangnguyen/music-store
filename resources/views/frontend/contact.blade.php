@@ -3,13 +3,13 @@
  
   <!-- catg header banner section -->
   <section id="aa-catg-head-banner">
-   <img src="img/fashion/fashion-header-bg-8.jpg" alt="fashion img">
+      <img src="img/banners/banner-1920x700.jpg" alt="img"/>
    <div class="aa-catg-head-banner-area">
      <div class="container">
       <div class="aa-catg-head-banner-content">
         <h2>Contact</h2>
         <ol class="breadcrumb">
-          <li><a href="index.html">Home</a></li>         
+          <li><a href="/">Home</a></li>
           <li class="active">Contact</li>
         </ol>
       </div>
@@ -25,7 +25,6 @@
          <div class="aa-contact-area">
            <div class="aa-contact-top">
              <h2>We are wating to assist you..</h2>
-             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, quos.</p>
            </div>
            <!-- contact map -->
            <div class="aa-contact-map">
@@ -72,11 +71,12 @@
                <div class="col-md-4">
                  <div class="aa-contact-address-right">
                    <address>
-                     <h4>DailyShop</h4>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum modi dolor facilis! Nihil error, eius.</p>
+                     <h4>Rhythm House</h4>
+                     <p>Rhythm House is a music store in the city, catering to almost all the age groups by providing the
+                         CDs, tapes of poems for kids, latest pop music collection for teenagers etc...</p>
                      <p><span class="fa fa-home"></span>Huntsville, AL 35813, USA</p>
-                     <p><span class="fa fa-phone"></span>+ 021.343.7575</p>
-                     <p><span class="fa fa-envelope"></span>Email: support@dailyshop.com</p>
+                     <p><span class="fa fa-phone"></span> 00-62-658-658</p>
+                     <p><span class="fa fa-envelope"></span>Email: support@rhythmhouse.com</p>
                    </address>
                  </div>
                </div>
@@ -87,24 +87,5 @@
      </div>
    </div>
  </section>
-
-  <!-- Subscribe section -->
-  <section id="aa-subscribe">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="aa-subscribe-area">
-            <h3>Subscribe our newsletter </h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, velit!</p>
-            <form action="" class="aa-subscribe-form">
-              <input type="email" name="" id="" placeholder="Enter your Email">
-              <input type="submit" value="Subscribe">
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- / Subscribe section -->
 
 @endsection

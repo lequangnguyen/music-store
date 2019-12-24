@@ -27,6 +27,7 @@ class IndexController extends Controller
         $music_instruments = $this->dataExchange->exchangeProducts($this->productRepository->getListProductsByCategoryId(Constants::CATE_MUSIC_INSTRUMENTS, 8, ['name' => 'id', 'value' => 'desc']));
         $most_popular_products = $this->dataExchange->exchangeProducts($this->productRepository->getMostPopularProducts(0, 8));
         $latest_products = $this->dataExchange->exchangeProducts($this->productRepository->getLatestProducts(8));
+        $liveshows = $this->dataExchange->exchangeProducts($this->productRepository->getListProductsByCategoryId(Constants::LIVE_SHOWS, 4, ['name' => 'id', 'value' => 'desc']));
 
         return view('frontend.index', [
             'cds' => $cds,
@@ -35,6 +36,7 @@ class IndexController extends Controller
             'music_instruments' => $music_instruments,
             'most_popular_products' => $most_popular_products,
             'latest_products' => $latest_products,
+            'liveshows' => $liveshows,
         ]);
     }
 
@@ -50,6 +52,6 @@ class IndexController extends Controller
 
     public function aboutUs()
     {
-        return view('frontend.contact');
+        return view('frontend.about_us');
     }
 }

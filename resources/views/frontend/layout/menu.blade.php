@@ -36,8 +36,8 @@
                         </li>
                         <li><a href="{{route('category', ['id' => 4])}}">Music Instruments</a></li>
                         <li><a href="{{route('category', ['id' => 5])}}">Live Shows</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">About Us</a></li>
+                        <li><a href="/contact-us">Contact Us</a></li>
+                        <li><a href="/about-us">About Us</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>

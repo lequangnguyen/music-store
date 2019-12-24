@@ -8,7 +8,7 @@
       <div class="aa-catg-head-banner-content">
 {{--        <h2>T-Shirt</h2>--}}
         <ol class="breadcrumb">
-          <li><a href="index.html">Home</a></li>         
+          <li><a href="/">Home</a></li>
           <li><a href="#">Product</a></li>
           <li class="active">{{$product->name}}</li>
         </ol>
