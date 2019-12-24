@@ -89,10 +89,13 @@ class ProductRepository implements ProductRepositoryInterface
 
     public function getProduct($id)
     {
-        // TODO: Implement getProduct() method.
-        $product = Products::find($id);
-        $product->image = env('IMG_URL').$product->image;
-        return $product;
+        $product=new Products();
+        $product = $product->newQuery();
+        $result=$product->leftjoin('artists','artists.id', '=', 'products.artist_id')
+        ->select('products.*','artists.name as artist_name')->where('products.id',$id)->get();
+        $result=$result[0];
+        $result->image = env('IMG_URL').$result->image;
+        return $result;
     }
     public function searchProducts($id, $search)
     {

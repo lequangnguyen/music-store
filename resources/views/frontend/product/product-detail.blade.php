@@ -6,7 +6,6 @@
    <div class="aa-catg-head-banner-area">
      <div class="container">
       <div class="aa-catg-head-banner-content">
-{{--        <h2>T-Shirt</h2>--}}
         <ol class="breadcrumb">
           <li><a href="index.html">Home</a></li>         
           <li><a href="#">Product</a></li>
@@ -37,10 +36,14 @@
                     <h3>{{$product->name}}</h3>
                      <div class="aa-info-block">
                       <span class="aa-product-view-price">Price: ${{$product->price}}</span>
-                      <p class="aa-product-avilability">Avilability: <span>In stock</span></p>
-                      <p class="aa-product-author">Author: <span>In stock</span></p>
-                      <p class="aa-product-company">Company: <span>In stock</span></p>
+                      <p class="aa-product-author">Artist: <span>{{$product->artist_name}}</span></p>
+                      @if ($product->start_time || $product->end_time )
+                        <p class="aa-product-company">Start date: <span>{{$product->start_time}}</span></p>
+                        <p class="aa-product-company">End date: <span>{{$product->end_time}}</span></p>
+                      @endif
+                      <p class="aa-product-author"><span>{!!$product->short_description!!}</span></p>
                     </div>
+
                     <div class="aa-prod-quantity">              
                         <select id="" name="quantity">
                           <option selected="1" value="1">1</option>
@@ -53,6 +56,7 @@
                       <p class="aa-prod-category">
                         Category: <a href="/category/{{$category->id}}">{{$category->name}}</a>
                       </p>
+
                     </div>
                     <div class="aa-prod-view-bottom">
                       <input type="hidden" name="id_product" value="{{$product->id}}">
