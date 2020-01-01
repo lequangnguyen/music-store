@@ -2,19 +2,8 @@
 @section('content')
  
   <!-- catg header banner section -->
-  <section id="aa-catg-head-banner">
-   <img src="img/fashion/fashion-header-bg-8.jpg" alt="fashion img">
-   <div class="aa-catg-head-banner-area">
-     <div class="container">
-      <div class="aa-catg-head-banner-content">
-        <h2>Cart Page</h2>
-        <ol class="breadcrumb">
-          <li><a href="/">Home</a></li>
-          <li class="active">Cart</li>
-        </ol>
-      </div>
-     </div>
-   </div>
+  <section id="aa-catg-head-banner" style="text-align: center;margin-bottom: -25px; margin-top: 15px">
+      <h2>CART INFO</h2>
   </section>
   <!-- / catg header banner section -->
 

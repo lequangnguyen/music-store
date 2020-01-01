@@ -1,23 +1,5 @@
 @extends('frontend.layout.master')
 @section('content')
-  <!-- catg header banner section -->
-  <section id="aa-catg-head-banner">
-   <img src="{{$category->image}}" alt="fashion img">
-   <div class="aa-catg-head-banner-area">
-     <div class="container">
-      <div class="aa-catg-head-banner-content">
-        <ol class="breadcrumb">
-          <li><a href="/">Home</a></li>
-          <li><a href="#">Product</a></li>
-          <li class="active">{{$product->name}}</li>
-        </ol>
-      </div>
-     </div>
-   </div>
-  </section>
-  <!-- / catg header banner section -->
-
-  <!-- product category -->
   <section id="aa-product-details">
     <div class="container">
       <div class="row">
