@@ -23,6 +23,7 @@ Route::get('/register', ['as'=>'register','uses'=>'Frontend\RegisterController@G
 Route::get('contact-us', 'Frontend\IndexController@contactUs');
 Route::get('about-us', 'Frontend\IndexController@aboutUs');
 Route::get('404', 'Frontend\IndexController@Get404');
+Route::get('search', 'Frontend\SearchController@index');
 
 Route::group(['prefix'=>'product'],function(){
     Route::get('{id}', 'Frontend\ProductController@GetProductDetail');

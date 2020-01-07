@@ -24,7 +24,12 @@ class CategoryController extends Controller
     {
         $products = $products->newQuery();
         $query = [];
-        $products->select('products.*')->where('products.category_id', '=', $id);
+        $products->leftJoin('categories', 'products.category_id', '=', 'categories.id')
+            ->select('products.*')
+            ->where(function ($query) use ($id){
+                $query->where('products.category_id', '=', $id)
+                    ->orWhere('categories.parent_id', '=', $id);
+            });
         if ($request->input('name')) {
             $name = $request->input('name');
             $products->where('products.name', 'like', '%' . $name . '%');

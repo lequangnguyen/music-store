@@ -1,18 +1,5 @@
 @extends('frontend.layout.master')
 @section('content')
-    <section id="aa-catg-head-banner">
-        <img src="{{$cate_info->image}}" alt="{{$cate_info->name}}">
-        <div class="aa-catg-head-banner-area">
-            <div class="container">
-                <div class="aa-catg-head-banner-content">
-                    <ol class="breadcrumb">
-                        <li><a href="/">Home</a></li>
-                        <li class="active">{{$cate_info->name}}</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </section>
     <!-- / catg header banner section -->
 
     <!-- product category -->
@@ -20,20 +7,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-9 col-md-9 col-sm-8 col-md-push-3">
-                    <div class="aa-product-catg-content">
-                        <div class="aa-product-catg-head">
-                            <div class="aa-product-catg-head-left">
-                                <form action="" class="aa-sort-form">
-                                    <label for="">Sort by</label>
-                                    <select name="">
-                                        <option value="1" selected="Default"><a href="/">Default</a></option>
-                                        <option value="2">Name</option>
-                                        <option value="3">Price</option>
-                                        <option value="4">Date</option>
-                                    </select>
-                                </form>
-                            </div>
-                        </div>
+                    <h3>Search: "{{$key_word}}" - {{$total}} results found</h3>
+                    <div class="aa-product-catg-content" style="padding: 0">
                         <div class="aa-product-catg-body">
                             <ul class="aa-product-catg">
                                 @foreach($products as $product)
