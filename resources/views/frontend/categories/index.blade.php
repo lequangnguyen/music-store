@@ -25,11 +25,17 @@
                             <div class="aa-product-catg-head-left">
                                 <form action="" class="aa-sort-form">
                                     <label for="">Sort by</label>
-                                    <select name="">
-                                        <option value="1" selected="Default"><a href="/">Default</a></option>
-                                        <option value="2">Name</option>
-                                        <option value="3">Price</option>
-                                        <option value="4">Date</option>
+                                    <select name="" id="orderBy">
+                                        <option value="{{ route('category', $cate_info->id) }}">Default</option>
+                                        <option value="{{ route('category', $cate_info->id) }}?order_by=1"
+                                            {{Request::input('order_by')=='1'?'selected="selected"':''}}
+                                        >
+                                            Price Increase
+                                        </option>
+                                        <option value="{{ route('category', $cate_info->id) }}?order_by=2"
+                                            {{Request::input('order_by')=='2'?'selected="selected"':''}}
+                                        >Price Decrease
+                                        </option>
                                     </select>
                                 </form>
                             </div>
@@ -37,7 +43,7 @@
                         <div class="aa-product-catg-body">
                             <ul class="aa-product-catg">
                                 @foreach($products as $product)
-                                    <li>
+                                    <li style="overflow: visible">
                                         <figure>
                                             <a class="aa-product-img" href="/product/{{$product->id}}"><img src="{{$product->image}}"
                                                                                     alt="{{$product->name}}"></a>
@@ -67,10 +73,10 @@
                                 <ul>
                                     @foreach($top_selling_products as $product)
                                     <li>
-                                        <a href="#" class="aa-cartbox-img"><img alt="{{$product->name}}"
+                                        <a href="/product/{{$product->id}}" class="aa-cartbox-img"><img alt="{{$product->name}}"
                                                                                 src="{{$product->image}}"></a>
                                         <div class="aa-cartbox-info">
-                                            <h4 style="font-weight: bold"><a href="#">{{$product->name}}</a></h4>
+                                            <h4 style="font-weight: bold"><a href="/product/{{$product->id}}">{{$product->name}}</a></h4>
                                             <p>${{$product->price}}</p>
                                         </div>
                                     </li>
@@ -86,3 +92,11 @@
     </section>
     <!-- / product category -->
 @endsection
+@push('scripts')
+    <script>
+        $('select').on('change', function() {
+            var url = this.value;
+            window.location.href = url;
+        });
+    </script>
+@endpush

@@ -42,10 +42,10 @@
                                 <ul>
                                     @foreach($top_selling_products as $product)
                                     <li>
-                                        <a href="#" class="aa-cartbox-img"><img alt="{{$product->name}}"
+                                        <a href="/product/{{$product->id}}" class="aa-cartbox-img"><img alt="{{$product->name}}"
                                                                                 src="{{$product->image}}"></a>
                                         <div class="aa-cartbox-info">
-                                            <h4 style="font-weight: bold"><a href="#">{{$product->name}}</a></h4>
+                                            <h4 style="font-weight: bold"><a href="/product/{{$product->id}}">{{$product->name}}</a></h4>
                                             <p>${{$product->price}}</p>
                                         </div>
                                     </li>

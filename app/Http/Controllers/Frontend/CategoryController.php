@@ -35,7 +35,18 @@ class CategoryController extends Controller
             $products->where('products.name', 'like', '%' . $name . '%');
             $query['name'] = $name;
         }
-        $products = $this->dataExchange->exchangeProducts($products->orderBy('id', 'desc')->paginate(6)->appends($query));
+        $orderBy = ['column'=>'id', 'direction'=>'desc'];
+        if ($request->input('order_by')) {
+            $order_by = $request->input('order_by');
+            if($order_by == 1){
+                $orderBy = ['column'=>'price', 'direction'=>'asc'];
+            }
+            if($order_by == 2){
+                $orderBy = ['column'=>'price', 'direction'=>'desc'];
+            }
+            $query['order_by'] = $order_by;
+        }
+        $products = $this->dataExchange->exchangeProducts($products->orderBy($orderBy['column'], $orderBy['direction'])->paginate(6)->appends($query));
         $top_selling_products = $this->dataExchange->exchangeProducts($this->productRepository->getMostPopularProducts($id, 4));
         $cate_info = Categories::findOrFail($id);
         $cate_info->image = env("IMG_URL").$cate_info->image;
